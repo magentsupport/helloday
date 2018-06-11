@@ -1,0 +1,20 @@
+<?php
+
+$currentCategoryId = Mage::registry('current_category')->getId();
+
+$categoryChild = Mage::helper('bannerslider')->getCustomMenuCategory($currentCategoryId);
+
+if (count($categoryChild) > 0) {
+    ?>
+    <div class="child-category">
+        <ul class="child-subcategories">
+            <?php foreach ($categoryChild as $child): ?>
+            <li class="cat-items <?php if ($currentCategoryId == $child->getId()) echo "active"; ?>">
+                    <a href="<?php echo $child->getUrl() ?>">
+                        <span><?php echo $child->getName() ?></span></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php } ?>
+

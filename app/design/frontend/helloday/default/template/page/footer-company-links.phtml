@@ -1,0 +1,7 @@
+<?php $currentUrl = Mage::helper('core/url')->getCurrentUrl(); ?>
+<ul>
+<li <?php if($currentUrl == Mage::getBaseUrl().'terms'){ echo 'class="active"'; } ?>><a href="<?php echo Mage::getBaseUrl() ?>terms">Terms</a></li>
+<li <?php if($currentUrl == Mage::getBaseUrl().'faqs'){ echo 'class="active"'; } ?>><a href="<?php echo Mage::getBaseUrl() ?>faqs">FAQs</a></li>
+<li <?php if($currentUrl == Mage::getBaseUrl().'cookie-policy'){ echo 'class="active"'; } ?>><a href="<?php echo Mage::getBaseUrl() ?>cookie-policy">Cookie Policy</a></li>
+<!-- <li <?php //if($currentUrl == Mage::getBaseUrl().'catalog/seo_sitemap/category'){ echo 'class="active"'; } ?>><a href="<?php //echo Mage::getBaseUrl() ?>catalog/seo_sitemap/category">Sitemap</a></li> -->
+</ul>

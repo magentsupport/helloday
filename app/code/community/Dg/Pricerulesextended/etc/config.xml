@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dg_Pricerulesextended>
+            <version>0.1</version><platform>ce</platform>
+        </Dg_Pricerulesextended>
+    </modules>
+
+    <global>
+        <models>
+            <pricerulesextended>
+                <class>Dg_Pricerulesextended_Model</class>
+            </pricerulesextended>
+        </models>
+        <helpers>
+            <pricerulesextended>
+                <class>Dg_Pricerulesextended_Helper</class>
+            </pricerulesextended>
+        </helpers>
+    </global>
+
+    <frontend>
+        <!--<events>
+            <newsletter_subscriber_save_after>  
+                <observers>  
+                    <newsletterSubscriberSave>  
+                        <type>singleton</type>  
+                        <class>Pricerulesextended/Observer</class>    
+                        <method>newsletterSubscriberSave</method>            
+                    </newsletterSubscriberSave>              
+                </observers>  
+            </newsletter_subscriber_save_after>
+        </events>-->
+        <routers>
+            <Dg_Pricerulesextended>
+                <use>standard</use>
+                <args>
+                    <module>Dg_Pricerulesextended</module>
+                    <frontName>pricerulesextended</frontName>
+                </args>
+            </Dg_Pricerulesextended>
+        </routers>
+    </frontend>
+
+    <adminhtml>
+          <acl>
+             <resources>
+                <admin>
+                   <children>
+                      <system>
+                         <children>
+                            <config>
+                               <children>
+                                  <pricerulesextended>
+                                     <title>Price Rules Extended Module</title>
+                                  </pricerulesextended>
+                               </children>
+                            </config>
+                         </children>
+                      </system>
+                   </children>
+                </admin>
+             </resources>
+          </acl>
+    </adminhtml>
+
+    <default>
+        <pricerulesextended>
+            <promocode>
+                <dollarvalue>10</dollarvalue>
+                <minpurchase>100</minpurchase>
+                <emailtext>We are so glad you subscribed to our newsletter! To say thanks, please accept the coupon code {promo_code} to use for your next purchase. It is good for ${promo_value} off your next purchase of ${promo_min} or more.</emailtext>
+            </promocode>
+        </pricerulesextended>
+    </default>
+
+</config>

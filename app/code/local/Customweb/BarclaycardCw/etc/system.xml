@@ -1,0 +1,2243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<sections>
+		<barclaycardcw translate="label comment" module="BarclaycardCw">
+			<class>separator-top</class>
+			<label><![CDATA[Barclaycard]]></label>
+			<tab>sales</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>900</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+
+			<groups>
+				<general translate="label" module="BarclaycardCw">
+					<label><![CDATA[Barclaycard Parameters]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>0</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<link translate="label comment">
+							<label></label>
+							<frontend_model>barclaycardcw/adminhtml_system_config_link</frontend_model>
+							<sort_order>0</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<version translate="label comment">
+							<label><![CDATA[Version]]></label>
+							<frontend_type>label</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</version>
+						<operation_mode translate="label comment">
+							<label><![CDATA[Operation Mode]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[If the test mode is selected the test PSPID is used and the test SHA passphrases.]]></comment>
+							<source_model>barclaycardcw/source_Operationmode</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</operation_mode>
+						<pspid translate="label comment">
+							<label><![CDATA[Live PSPID]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>11</sort_order>
+							<comment><![CDATA[The PSPID as given by the Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</pspid>
+						<test_pspid translate="label comment">
+							<label><![CDATA[Test PSPID]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>12</sort_order>
+							<comment><![CDATA[The test PSPID as given by the Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</test_pspid>
+						<live_sha_passphrase_in translate="label comment">
+							<label><![CDATA[SHA-IN Passphrase]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>13</sort_order>
+							<comment><![CDATA[Enter the live SHA-IN passphrase. This value must be identical to the one in the back-end of Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</live_sha_passphrase_in>
+						<live_sha_passphrase_out translate="label comment">
+							<label><![CDATA[SHA-OUT Passphrase]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>14</sort_order>
+							<comment><![CDATA[Enter the live SHA-OUT passphrase. This value must be identical to the one in the back-end of Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</live_sha_passphrase_out>
+						<test_sha_passphrase_in translate="label comment">
+							<label><![CDATA[Test Account SHA-IN Passphrase]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>15</sort_order>
+							<comment><![CDATA[Enter the test SHA-IN passphrase. This value must be identical to the one in the back-end of Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</test_sha_passphrase_in>
+						<test_sha_passphrase_out translate="label comment">
+							<label><![CDATA[Test Account SHA-OUT Passphrase]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>16</sort_order>
+							<comment><![CDATA[Enter the test SHA-OUT passphrase. This value must be identical to the one in the back-end of Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</test_sha_passphrase_out>
+						<hash_method translate="label comment">
+							<label><![CDATA[Hash calculation method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>17</sort_order>
+							<comment><![CDATA[Select the hash calculation method to use. This value must correspond with the selected value in the back-end of Barclaycard.]]></comment>
+							<source_model>barclaycardcw/source_Hashmethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</hash_method>
+						<order_id_schema translate="label comment">
+							<label><![CDATA[Order prefix]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>18</sort_order>
+							<comment><![CDATA[Here you can insert an order prefix. The prefix allows you to change the order number that is transmitted to Barclaycard. The prefix must contain the tag {id}. It will then be replaced by the order number (e.g. name_{id}).]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</order_id_schema>
+						<title translate="label comment">
+							<label><![CDATA[Payment Page Title]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>19</sort_order>
+							<comment><![CDATA[Define here the title which is shown on the payment page. If no title is defined here the default one is used.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<order_description_schema translate="label comment">
+							<label><![CDATA[Order Description]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[This parameter is sometimes transmitted to the acquirer (depending on the acquirer), in order to be shown on the account statements of the merchant or the customer. The prefix can contain the tag {id}. It will then be replaced by the order number (e.g. name {id}). (Payment Page only)]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</order_description_schema>
+						<template translate="label comment">
+							<label><![CDATA[Dynamic Template]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>21</sort_order>
+							<comment><![CDATA[With the Dynamic Template you can design the layout of the payment page yourself. For the option 'Own template' the URL to the template file must be entered into the following box.]]></comment>
+							<source_model>barclaycardcw/source_Template</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</template>
+						<template_url translate="label comment">
+							<label><![CDATA[Template URL for own template]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>22</sort_order>
+							<comment><![CDATA[The URL indicated here is rendered as Template. For this you must select option 'Use own template'. The URL must point to an HTML page that contains the string '$$$PAYMENT ZONE$$$'. This part of the HTML file is replaced with the form for the credit card input.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</template_url>
+						<shop_id translate="label comment">
+							<label><![CDATA[Shop ID]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>23</sort_order>
+							<comment><![CDATA[Here you can define a Shop ID. This is only necessary if you wish to operate several shops with one PSPID. In order to use this module, an additional module is required.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</shop_id>
+						<api_user_id translate="label comment">
+							<label><![CDATA[API Username]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>24</sort_order>
+							<comment><![CDATA[You can create an API username in the back-end of Barclaycard. The API user is necessary for the direct communication between the shop and the service of Barclaycard.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</api_user_id>
+						<api_password translate="label comment">
+							<label><![CDATA[API Password]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>25</sort_order>
+							<comment><![CDATA[Password for the API user.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</api_password>
+						<alias_usage_message translate="label comment">
+							<label><![CDATA[Intended purpose of alias]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>26</sort_order>
+							<comment><![CDATA[If the Alias Manager is used, the intended purpose is shown to the customer on the payment page. Through this the customer knows why his data is saved.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_usage_message>
+						<transaction_updates translate="label comment">
+							<label><![CDATA[Transaction Updates]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>27</sort_order>
+							<comment><![CDATA[When the store is not available (network outage, server failure or any other outage), when the feedback of Barclaycard is sent, then the transaction state is not updated. Hence no order confirmation e-mail is sent and the order is not in the paid state. By activating the transaction update, such transactions can be authorized later over direct link. To use this feature the update service must be activated and the API username and the API password must be set.]]></comment>
+							<source_model>barclaycardcw/source_Transactionupdates</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</transaction_updates>
+						<cancel_existing_orders translate="label comment">
+							<label><![CDATA[Cancel pending orders when out of stock]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[If a product is in stock only once and the payment of the customer ordering this product fails or is aborted, it won't be available until the order is canceled (see timeout option below). Enable this setting to cancel the customer's pending orders when he returns to the cart page and a product is not available anymore. Be careful though: If you enable this option, there is a chance that payments are made with the corresponding order being already canceled.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</cancel_existing_orders>
+						<wait_for_success translate="label comment">
+							<label><![CDATA[Wait On Success Page]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[In some cases the transaction requires a few seconds until it is successfully authorized. When this option is enabled the user is hold until the transaction reach the final state. If this is not the case in 30 seconds a message is shown to the customer, which explains the situation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</wait_for_success>
+						
+						<external_checkout_account_creation translate="label comment">
+							<label><![CDATA[External Checkout: Guest Checkout]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[When using an external checkout, the customer can either be asked to chose an option to authenticate (as guest, register or login) or he can always be checked out as guest. For the second option to work, guest checkout has to be enabled in magento.]]></comment>
+							<source_model>barclaycardcw/source_externalCheckoutAccountCreation</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</external_checkout_account_creation>
+						
+						<debug_log translate="label comment">
+							<label><![CDATA[Logging]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Enable or disable logging.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</debug_log>
+					</fields>
+				</general>
+				<recurring translate="label" module="BarclaycardCw">
+					<label><![CDATA[Recurring Payments]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<comment><![CDATA[If you would like to use recurring payments, you need our magento module "Customweb Subscription". For further information go to <a href="http://www.sellxed.com/shop/" target="_blank">sellxed.com</a>.]]></comment>
+				</recurring>
+			</groups>
+		</barclaycardcw>
+		<payment>
+			<groups>
+				<barclaycardcw_mastercard translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard MasterCard</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_MasterCardCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_MasterCardSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<three_d_secure_behavior translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[Some cards are not enrolled for the 3D secure process and you may exclude some cards from performing a 3D secure authorization. This setting controls, what should happend with these transactions. This setting requires that the parameter 'CCCTY' is returned.]]></comment>
+							<source_model>barclaycardcw/source_Threedsecurebehavior</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_behavior>
+						<three_d_secure_country_list translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior Country List]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[The countries listed in this field are used to mark transaction as uncertain. The behavior depends on the setting above 'Non 3D Secure Behavior'. The country code is taken from the card. You need to make sure you return the parameter 'CCCTY'. As indicated by Barclaycard this value is only for 94% of the transaction correct. The list below must be a comma separated list of country codes. The codes must be in ISO 3166-2 format (e.g. DE,IT,FR).]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_country_list>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>209</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>210</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_MasterCardAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label comment">
+							<label><![CDATA[Alias Manager]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>211</sort_order>
+							<comment><![CDATA[The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Barclaycard.]]></comment>
+							<source_model>barclaycardcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+					</fields>
+				</barclaycardcw_mastercard><barclaycardcw_masterpass translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard MasterPass</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_MasterPassCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_MasterPassSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_MasterPassAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+					</fields>
+				</barclaycardcw_masterpass><barclaycardcw_creditcard translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard Credit Card</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_CreditCardCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_CreditCardSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<payment_method_listing translate="label comment">
+							<label><![CDATA[Payment Method Listing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[In case the payment page is used with this payment method the different credit card brands are listed on the payment page of Barclaycard. This setting controlls the display of them.]]></comment>
+							<source_model>barclaycardcw/source_Paymentmethodlisting</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</payment_method_listing>
+						<credit_card_brands translate="label comment">
+							<label><![CDATA[Credit Card Brands]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[In case hidden authorization is used, the brand of the credit card is detected by the card number and the card number is validated accordingly. This setting enables the restriction of the allowed brands.]]></comment>
+							<source_model>barclaycardcw/source_Creditcardbrands</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</credit_card_brands>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<three_d_secure_behavior translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>209</sort_order>
+							<comment><![CDATA[Some cards are not enrolled for the 3D secure process and you may exclude some cards from performing a 3D secure authorization. This setting controls, what should happend with these transactions. This setting requires that the parameter 'CCCTY' is returned.]]></comment>
+							<source_model>barclaycardcw/source_Threedsecurebehavior</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_behavior>
+						<three_d_secure_country_list translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior Country List]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>210</sort_order>
+							<comment><![CDATA[The countries listed in this field are used to mark transaction as uncertain. The behavior depends on the setting above 'Non 3D Secure Behavior'. The country code is taken from the card. You need to make sure you return the parameter 'CCCTY'. As indicated by Barclaycard this value is only for 94% of the transaction correct. The list below must be a comma separated list of country codes. The codes must be in ISO 3166-2 format (e.g. DE,IT,FR).]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_country_list>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>211</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>212</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_CreditCardAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label comment">
+							<label><![CDATA[Alias Manager]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>213</sort_order>
+							<comment><![CDATA[The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Barclaycard.]]></comment>
+							<source_model>barclaycardcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+					</fields>
+				</barclaycardcw_creditcard><barclaycardcw_americanexpress translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard American Express</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_AmericanExpressCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_AmericanExpressSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_AmericanExpressAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label comment">
+							<label><![CDATA[Alias Manager]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>209</sort_order>
+							<comment><![CDATA[The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Barclaycard.]]></comment>
+							<source_model>barclaycardcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+					</fields>
+				</barclaycardcw_americanexpress><barclaycardcw_jcb translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard JCB</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_JcbCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_JcbSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_JcbAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+					</fields>
+				</barclaycardcw_jcb><barclaycardcw_visa translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard Visa</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_VisaCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_VisaSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<three_d_secure_behavior translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[Some cards are not enrolled for the 3D secure process and you may exclude some cards from performing a 3D secure authorization. This setting controls, what should happend with these transactions. This setting requires that the parameter 'CCCTY' is returned.]]></comment>
+							<source_model>barclaycardcw/source_Threedsecurebehavior</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_behavior>
+						<three_d_secure_country_list translate="label comment">
+							<label><![CDATA[Non 3D Secure Behavior Country List]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[The countries listed in this field are used to mark transaction as uncertain. The behavior depends on the setting above 'Non 3D Secure Behavior'. The country code is taken from the card. You need to make sure you return the parameter 'CCCTY'. As indicated by Barclaycard this value is only for 94% of the transaction correct. The list below must be a comma separated list of country codes. The codes must be in ISO 3166-2 format (e.g. DE,IT,FR).]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</three_d_secure_country_list>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>209</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>210</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_VisaAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+						<alias_manager translate="label comment">
+							<label><![CDATA[Alias Manager]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>211</sort_order>
+							<comment><![CDATA[The alias manager allows the customer to select from a credit card previously stored. The sensitive data is stored by Barclaycard.]]></comment>
+							<source_model>barclaycardcw/source_Aliasmanager</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</alias_manager>
+					</fields>
+				</barclaycardcw_visa><barclaycardcw_maestro translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard Maestro</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_MaestroCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_MaestroSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<refusing_threshold translate="label comment">
+							<label><![CDATA[Refused Transaction Threshold]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[A typical pattern of a fraud transaction is a series of refused transaction before one of them is accepted. This setting defines the threshold after any following transaction is marked as uncertain. E.g. a threshold of three will mark any successful transaction after three refused transaction as uncertain.]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</refusing_threshold>
+						<country_check translate="label comment">
+							<label><![CDATA[Country Check]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>207</sort_order>
+							<comment><![CDATA[The module can perform a check of the country code provided by the issuer of the card, the IP address country and the billing address country. In case they do not match, the transaction is marked as uncertain. This setting does not override any other rule for marking transaction as uncertain.]]></comment>
+							<source_model>barclaycardcw/source_Countrycheck</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</country_check>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>208</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_MaestroAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+					</fields>
+				</barclaycardcw_maestro><barclaycardcw_paypal translate="label comment" module="BarclaycardCw">
+					<label>Barclaycard PayPal</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<active translate="label comment">
+							<label><![CDATA[Enabled]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>10</sort_order>
+							<comment><![CDATA[Enable the payment method]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</active>
+						<title translate="label comment">
+							<label><![CDATA[Titel]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>20</sort_order>
+							<comment><![CDATA[Title of the payment method]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</title>
+						<description translate="label comment">
+							<label><![CDATA[Description]]></label>
+							<frontend_type>textarea</frontend_type>
+							<sort_order>30</sort_order>
+							<comment><![CDATA[Payment method description]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</description>
+						<show_image translate="label comment">
+							<label><![CDATA[Show the payment image]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>40</sort_order>
+							<comment><![CDATA[Show the payment image on the checkout page]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_image>
+						<show_payment_id translate="label comment">
+							<label><![CDATA[Show the payment id]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>50</sort_order>
+							<comment><![CDATA[Show the payment id in the order information]]></comment>
+							<source_model>barclaycardcw/source_show</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</show_payment_id>
+						<Currency translate="label comment">
+							<label><![CDATA[Currency]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>60</sort_order>
+							<comment><![CDATA[Allowed currencies for this payment method]]></comment>
+							<source_model>barclaycardcw/source_PayPalCurrency</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</Currency>
+						<use_base_currency translate="label comment">
+							<label><![CDATA[Use base currency]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>70</sort_order>
+							<comment><![CDATA[Send amounts to Barclaycard in base currency.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</use_base_currency>
+						<allowspecific translate="label comment">
+							<label><![CDATA[Payment from applicable countries]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>80</sort_order>
+							<comment><![CDATA[Payment from applicable countries]]></comment>
+							<source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</allowspecific>
+						<specificcountry translate="label comment">
+							<label><![CDATA[Payment from specific countries]]></label>
+							<frontend_type>multiselect</frontend_type>
+							<sort_order>90</sort_order>
+							<comment><![CDATA[Payment from specific countries]]></comment>
+							<source_model>barclaycardcw/source_PayPalSpecificcountry</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<can_be_empty>1</can_be_empty>
+						</specificcountry>
+						<sort_order translate="label comment">
+							<label><![CDATA[Sort Order]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>100</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</sort_order>
+						<min_order_total translate="label comment">
+							<label><![CDATA[Minimum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>110</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</min_order_total>
+						<max_order_total translate="label comment">
+							<label><![CDATA[Maximum Order Total]]></label>
+							<frontend_type>text</frontend_type>
+							<sort_order>120</sort_order>
+							<comment><![CDATA[]]></comment>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</max_order_total>
+						<settlement translate="label comment">
+							<label><![CDATA[Invoice settlement]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>130</sort_order>
+							<comment><![CDATA[Choose settlement after order in case you want an invoice to be created with your oder. The state of the invoice will set according to your capture status]]></comment>
+							<source_model>barclaycardcw/source_settlement</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</settlement>
+						<invoice_send_email translate="label comment">
+							<label><![CDATA[Send invoice email]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>140</sort_order>
+							<comment><![CDATA[Send the invoice email automatically after invoice creation.]]></comment>
+							<source_model>barclaycardcw/source_enabled</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</invoice_send_email>
+						
+						<capturing translate="label comment">
+							<label><![CDATA[Capturing]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>200</sort_order>
+							<comment><![CDATA[Should the amount be captured automatically after the order (direct) or should the amount only be reserved (deferred)?]]></comment>
+							<source_model>barclaycardcw/source_Capturing</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</capturing>
+						<status_authorized translate="label comment">
+							<label><![CDATA[Authorized Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>201</sort_order>
+							<comment><![CDATA[This status is set, when the payment was successfull and it is authorized.]]></comment>
+							<source_model>barclaycardcw/source_Statusauthorized</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_authorized>
+						<status_uncertain translate="label comment">
+							<label><![CDATA[Uncertain Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>202</sort_order>
+							<comment><![CDATA[You can specify the order status for new orders that have an uncertain authorisation status.]]></comment>
+							<source_model>barclaycardcw/source_Statusuncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_uncertain>
+						<status_captured translate="label comment">
+							<label><![CDATA[Captured Status]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>203</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are captured either directly after the order or manually in the backend.]]></comment>
+							<source_model>barclaycardcw/source_Statuscaptured</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_captured>
+						<status_success_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Successful Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>204</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are successful after being in a uncertain state. In order to use this setting, you will need to activate the http-request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statussuccessafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_success_after_uncertain>
+						<status_refused_after_uncertain translate="label comment">
+							<label><![CDATA[HTTP Status for Refused Payments]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>205</sort_order>
+							<comment><![CDATA[You can specify the order status for orders that are refused after being in a uncertain state. In order to use this feature you will have to set up the http request for status changes as outlined in the manual.]]></comment>
+							<source_model>barclaycardcw/source_Statusrefusedafteruncertain</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</status_refused_after_uncertain>
+						<authorizationMethod translate="label comment">
+							<label><![CDATA[Authorization Method]]></label>
+							<frontend_type>select</frontend_type>
+							<sort_order>206</sort_order>
+							<comment><![CDATA[Select the authorization method to use for processing this payment method.]]></comment>
+							<source_model>barclaycardcw/source_PayPalAuthorizationMethod</source_model>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</authorizationMethod>
+					</fields>
+				</barclaycardcw_paypal>
+			</groups>
+		</payment>
+	</sections>
+</config>

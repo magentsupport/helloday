@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <C3_UKShippingTax>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends></depends>
+        </C3_UKShippingTax>
+    </modules>
+</config>

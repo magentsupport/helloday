@@ -1,0 +1,180 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Helloday_Mail>
+            <version>1.44.0</version>
+        </Helloday_Mail>
+    </modules>
+    <global>
+        <models>
+            <helloday_mail>
+                <class>Helloday_Mail_Model</class>
+                <resourceModel>helloday_mail_resource</resourceModel>
+            </helloday_mail>
+            <helloday_mail_resource>
+                <class>Helloday_Mail_Model_Resource</class>
+            </helloday_mail_resource>
+            <newsletter>
+                <rewrite>
+                    <subscriber>Helloday_Mail_Model_Newsletter_Subscriber</subscriber>
+                </rewrite>
+            </newsletter>
+            <sales>
+                <rewrite>
+                    <order>Helloday_Mail_Model_Sales_Order</order>
+                </rewrite>
+            </sales>
+            <pricerulesextended>
+                <rewrite>
+                    <observer>Helloday_Mail_Model_Pricerulesextended_Observer</observer>
+                </rewrite>
+            </pricerulesextended>
+        </models>
+        <resources>
+            <helloday_mail_setup>
+                <setup>
+                    <module>Helloday_Mail</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </helloday_mail_setup>
+        </resources>
+        <blocks>
+            <helloday_mail>
+                <class>Helloday_Mail_Block</class>
+            </helloday_mail>
+            <adminhtml>
+                <rewrite>
+                    <system_email_template_edit>Helloday_Mail_Block_Adminhtml_System_Email_Template_Edit</system_email_template_edit>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+        <helpers>
+            <helloday_mail>
+                <class>Helloday_Mail_Helper</class>
+            </helloday_mail>
+        </helpers>
+        <template>
+            <email>
+                <helloday_mail_header_template translate="label" module="helloday_mail">
+                    <label>Helloday Header</label>
+                    <file>helloday/html/header.html</file>
+                    <type>html</type>
+                </helloday_mail_header_template>
+                <helloday_mail_footer_template translate="label" module="helloday_mail">
+                    <label>Helloday Footer</label>
+                    <file>helloday/html/footer.html</file>
+                    <type>html</type>
+                </helloday_mail_footer_template>
+                <helloday_newsletter_signup_popup_template translate="label" module="helloday_mail">
+                    <label>Helloday Newsletter Signup</label>
+                    <file>helloday/newsletter_signup_popup.html</file>
+                    <type>html</type>
+                </helloday_newsletter_signup_popup_template>
+                <helloday_newsletter_signup_registration_template translate="label" module="helloday_mail">
+                    <label>Helloday Newsletter Signup On Registration</label>
+                    <file>helloday/newsletter_signup_registration.html</file>
+                    <type>html</type>
+                </helloday_newsletter_signup_registration_template>
+                <helloday_customer_password_forgot_email_template translate="label" module="customer">
+                    <label>Helloday Password reset confirmation</label>
+                    <file>helloday/account_password_reset_confirmation.html</file>
+                    <type>html</type>
+                </helloday_customer_password_forgot_email_template>
+                <helloday_customer_create_account_email_template translate="label" module="customer">
+                    <label>Helloday New account</label>
+                    <file>helloday/account_new.html</file>
+                    <type>html</type>
+                </helloday_customer_create_account_email_template>
+                <helloday_contacts_email_email_template translate="label" module="contacts">
+                    <label>Helloday Contact Form</label>
+                    <file>helloday/contact_form.html</file>
+                    <type>html</type>
+                </helloday_contacts_email_email_template>
+                <helloday_sales_email_order_template translate="label" module="sales">
+                    <label>Helloday New Order</label>
+                    <file>helloday/sales/order_new.html</file>
+                    <type>html</type>
+                </helloday_sales_email_order_template>
+                <helloday_abandoned_card_template translate="label" module="sales">
+                    <label>Helloday Abandoned Card</label>
+                    <file>helloday/abandoned_cart.html</file>
+                    <type>html</type>
+                </helloday_abandoned_card_template>
+                <helloday_newsletter_featuring_blog_post translate="label" module="sales">
+                    <label>Helloday Newsletter featuring blog post</label>
+                    <file>helloday/newsletter_featuring_blog_post.html</file>
+                    <type>html</type>
+                </helloday_newsletter_featuring_blog_post>
+                <helloday_newsletter_featuring_a_theme translate="label" module="sales">
+                    <label>Helloday Newsletter featuring a theme</label>
+                    <file>helloday/newsletter_featuring_a_theme.html</file>
+                    <type>html</type>
+                </helloday_newsletter_featuring_a_theme>
+                <helloday_newsletter_featuring_our_seasonal_box translate="label" module="sales">
+                    <label>Helloday Newsletter featuring our seasonal box</label>
+                    <file>helloday/newsletter_featuring _our_seasonal_box.html</file>
+                    <type>html</type>
+                </helloday_newsletter_featuring_our_seasonal_box>
+                <helloday_newsletter_automated_response translate="label" module="sales">
+                    <label>Helloday Newsletter automated response</label>
+                    <file>helloday/newsletter_automated_response.html</file>
+                    <type>html</type>
+                </helloday_newsletter_automated_response>
+            </email>
+        </template>
+    </global>
+    <frontend>
+        <events>
+            <newsletter_subscriber_save_after>
+                <observers>
+                    <newsletterSubscriberSave>
+                        <type>singleton</type>
+                        <class>Helloday_Mail_Model_Pricerulesextended_Observer</class>
+                        <method>newsletterSubscriberSave</method>
+                    </newsletterSubscriberSave>
+                </observers>
+            </newsletter_subscriber_save_after>
+            <customer_register_success>
+                <observers>
+                    <customerRegisterAfter>
+                        <type>singleton</type>
+                        <class>Helloday_Mail_Model_Observer</class>
+                        <method>sendEmail</method>
+                    </customerRegisterAfter>
+                </observers>
+            </customer_register_success>
+        </events>
+        <routers>
+            <contacts>
+                <args>
+                    <modules>
+                        <Helloday_Mail before="Mage_Contacts">Helloday_Mail_Contacts</Helloday_Mail>
+                    </modules>
+                </args>
+            </contacts>
+        </routers>
+    </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Helloday_Mail before="Mage_Adminhtml">Helloday_Mail_Adminhtml</Helloday_Mail>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <mailchimp>
+            <helloday>
+                <confirmation_success_email_magento_send>1</confirmation_success_email_magento_send>
+            </helloday>
+        </mailchimp>
+        <pricerulesextended>
+            <email>
+                <enable>0</enable>
+            </email>
+        </pricerulesextended>
+    </default>
+</config>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ES_DiscountCodeValidation>
+            <active>false</active>
+            <codePool>community</codePool>
+            <depends>
+	            <ES_Newssubscribers />
+	        </depends>
+        </ES_DiscountCodeValidation>
+    </modules>
+</config>

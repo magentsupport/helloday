@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<sections>
+		<mailchimp>
+			<groups>
+				<helloday translate="label" module="helloday_mail">
+					<label><![CDATA[Hello Day Parameters]]></label>
+					<frontend_type>text</frontend_type>
+					<sort_order>0</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<confirmation_success_email_magento_send translate="label">
+							<label>Send confirmation success email from Magento</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+							<backend_model>mailchimp/system_config_backend_active</backend_model>
+							<sort_order>10</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</confirmation_success_email_magento_send>
+					</fields>
+				</helloday>
+			</groups>
+		</mailchimp>
+		<newsletter>
+			<groups>
+				<subscription>
+					<fields>
+						<success_email_template_popup translate="label">
+							<label>Success Email Template Popup</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</success_email_template_popup>
+						<automated_response_email_template translate="label">
+							<label>Automated Response Email Template</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</automated_response_email_template>
+					</fields>
+				</subscription>
+			</groups>
+		</newsletter>
+		<contacts>
+			<groups>
+				<email>
+					<fields>
+						<email_template_recipient translate="label">
+							<label>Email Template Recipient</label>
+							<frontend_type>select</frontend_type>
+							<source_model>adminhtml/system_config_source_email_template</source_model>
+							<sort_order>35</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</email_template_recipient>
+					</fields>
+				</email>
+			</groups>
+		</contacts>
+	</sections>
+</config>

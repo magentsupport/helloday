@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <SSTech_Ordersuccesspage>
+            <active>true</active>
+            <codePool>community</codePool>
+        </SSTech_Ordersuccesspage>
+    </modules>
+</config>

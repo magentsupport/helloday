@@ -1,0 +1,69 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Blog
+ * @version    tip
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><div class="block block-blog">
+    <div class="block-content">
+        <?php if ($posts = $this->getRecent()): ?>
+            <div class="menu-recent">
+                <h5><?php echo Mage::helper('blog')->__('Recent Posts'); ?></h5>
+                <ul>
+                    <?php foreach ($posts as $post): ?>
+                        <li><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+
+        <?php if ($this->getCategories()->count() && Mage::getStoreConfig('blog/menu/category')): ?>
+            <div class="menu-categories">
+                <h5><?php echo Mage::helper('blog')->__('Categories'); ?></h5>
+                <ul>
+                    <?php $cats = $this->getCategories(); ?>
+                    <?php foreach ($cats as $cat): ?>
+                        <li><a href="<?php echo $cat->getAddress(); ?>" ><?php echo $cat->getTitle(); ?></a></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php endif; ?>
+        <!--        <div class="post-social-links">
+                    <ul class="sharing-links">
+        <?php //$currentpost = Mage::registry('share_current_post_data')->getData(); ?>
+                        <li>
+                            <a href="<?php //echo 'http://twitter.com/home?status=' . $currentpost['title'] . '+' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $currentpost['image'];    ?>" target="_blank" title="<?php // echo Mage::helper('core')->quoteEscape($this->__('Share on Twitter'))    ?>" class="link-twitter"></a>
+                        </li>
+                        <li>
+        <?php //$_u = 'p[url]=' . $currentpost['address'] . '&p[images][0]=' . Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . $currentpost['image'] . '&p[title]=' . $currentpost['title'] . '&p[summary]=' . urlencode(trim($currentpost['short_content'])); ?>
+                            <a href="<?php // echo 'http://www.facebook.com/sharer.php?s=100&' . $_u;    ?>" target="_blank" title="<?php //echo Mage::helper('core')->quoteEscape($this->__('Share on Facebook'))    ?>" class="link-facebook">
+        
+                            </a>
+                        </li>
+                        <li>
+                            <a href="<?php //echo 'https://plus.google.com/share?url=' . $currentpost['address'];    ?>" target="_blank" title="<?php //echo Mage::helper('core')->quoteEscape($this->__('Share on Google+'))    ?>" class="link-google"></a>
+                        </li>
+                    </ul>
+                </div>-->
+        <?php echo $this->getChildHtml('blog_tags'); ?>
+    </div>
+</div>

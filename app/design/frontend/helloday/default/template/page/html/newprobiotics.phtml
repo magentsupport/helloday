@@ -1,0 +1,290 @@
+<div class="new-probiotics">
+	<div class="main-container">
+		<div class="new-probiotics-banner">
+			<a href="<?php echo $this->getUrl('shop/products.html');?>"><img src="<?php echo $this->getSkinUrl('images/probiotics-header-banner.svg'); ?>"></a>
+		</div>
+		<div class="healthy-section">
+			<div class="title">HOW HEALTHY IS YOUR GUT?</div>
+			<p>Inside your gastrointestinal tract are trillions of microbes, also known as micro-organisms, consisting of viruses, small quantities of yeast and 800 - 1,000 different types of bacteria. <sup>1,2</sup> This is known as your microbiota, or microflora, with the highest number of microbes being in the colon.</p>
+			<p>This microbiota ecosystem is like a seesaw, constantly auto-regulating. The balance can be affected due to environmental factors, diet, stress, age, medications such as antibiotics, and a weak immunity. <sup>3</sup></p>
+			<p>Friendly live bacteria – probiotics – balance our good and bad intestinal bacteria, helping our digestion, metabolism and immune systems stay healthy.</p>
+			<div class="img-main">
+				<img class="mobile-hide" src="<?php echo $this->getSkinUrl('images/DYSBIOSIS.jpg'); ?>">
+				<img class="mobile-show" src="<?php echo $this->getSkinUrl('images/dysbiosis_mobile.jpg'); ?>">
+				<p>Imbalance in the microbiota is known as a dysbiosis and can mean indigestion, <br>bloating, bowel problems, flatulence, constipation and diarrhoea – even IBS (Irritable<br>Bowel Syndrome) and Crohn’s disease. <sup>4,5,6</sup></p>
+			</div>
+		</div>
+	</div>
+	<div class="help-us-section">
+		<div class="main-container">
+			<div class="title">HOW OUR INTESTINAL <br>MICROBIOTA HELPS US ?</div>
+			<ul class="list-1">
+				<li>Developing and maturing the immune system (70% of our immune cells are in our intestines).</li>
+				<li class="right">Developing the digestive system and digesting certain foods that the stomach and the small intestine can’t.</li>
+				<li>Creating a barrier effect (to limit the propagation of pathogens – infectious agents, such as a virus, that cause illness or disease) .</li>
+				<li class="right">Absorbing vitamins and minerals (K,B1,B2,B6,B9,B12)</li>
+			</ul>
+		</div>
+	</div>
+	<div class="probio-section">
+		<div class="main-container">
+			<div class="title">WHAT IS PROBIO SUPPORT?</div>
+			<p>Hello Day’s Probio Support has been specifically created to help you prepare yourself and your health throughout the seasons so that you look better, feel better, and flow better every day.</p>
+			<p>Probio Support is a premium range of probiotics and prebiotics to prevent and improve a wide range of digestion problems and discomforts. Probiotics are friendly live bacteria while prebiotics are a type of carbohydrate that nourish this good bacteria in your gut, helping it to grow and thrive.</p>
+			<div class="img-main">
+				<img class="mobile-hide" src="<?php echo $this->getSkinUrl('images/PROBIO_SUPPORT.jpg'); ?>">	
+				<img class="mobile-show" src="<?php echo $this->getSkinUrl('images/pimgpsh_fullsize.jpg'); ?>">			
+				
+			</div>
+			<div class="title2">WHY CERTAIN PROBIOTIC SUPPLEMENTS <br>ARE BETTER THAN OTHERS?</div>
+			<p>Probiotic bacteria may be defined as ‘live micro-organisms which, when administered in adequate amounts, confer a health benefit on the host’. <sup>7</sup> Each one of us has our very own unique ecosystem. <sup>8</sup></p>
+			<p>A probiotic should contain more than one billion living micro-organisms to increase the chance of adequate gut colonisation. <sup>9</sup> Most clinical trials show that 10 - 15 billion CFUs (colony forming units) are needed for effective daily care, which is what Hello Day’s Probio Support offers.</p>
+			<p>A large number of clinical studies have also shown that specific strains of probiotics can help with immunity and protect against certain intestinal infections and inflammatory chronic diseases, including IBS and Crohn’s disease. <sup>4,5,6.</sup></p>
+			<p>Our Probio Support products contain more than one live strain, which can be particularly beneficial because colonisation may only occur with one strain and not another. What’s more, probiotic mixtures can often work together in synergy.</p>
+		</div>
+	</div>
+	<div class="effective-section">
+		<div class="main-container">
+			<div class="title2">WHAT MAKES OUR PROBIO SUPPORT SO EFFECTIVE?</div>
+			<div class="left">
+				<p>Hello Day’s Probio Support range consists of a carefully chosen selection of effective live strains combined with a ‘Free From’ list of ingredients to a GMP’s (Good Manufacturing Practice) certified manufacturing process. For example:</p>
+				<ul class="list-1">
+					<li>Lactobacillus acidophilus, Lactobacillus casei, Streptococcus thermophiles: to restore the microbiota balance and ease digestive problems by reducing bloating, flatulence and intestinal discomfort. Recolonising the digestive tract reduces the frequency of diarrhoea.</li>
+					<li>Lactobacillus acidophilus, Lactobacillus casei: to reduce constipation.</li>
+				</ul>
+			</div>
+			<div class="right">
+				<img src="<?php echo $this->getSkinUrl('images/effective-logo.png'); ?>">	
+			</div>
+		</div>
+	</div>
+	<?php
+
+	$_sku = '15103SA-DIGES-89';
+	$_catalog = Mage::getModel('catalog/product');
+	$_productId = $_catalog->getIdBySku($_sku);
+	$Bioharmony_product = Mage::getModel('catalog/product')->load($_productId);
+	$bioharmony_url = Mage::helper('checkout/cart')->getAddUrl($Bioharmony_product);
+
+	$_sku = '15103SA-IMMUN-80';
+	$_catalog = Mage::getModel('catalog/product');
+	$_productId = $_catalog->getIdBySku($_sku);
+	$immunity_product = Mage::getModel('catalog/product')->load($_productId);
+	$immunity_url = Mage::helper('checkout/cart')->getAddUrl($immunity_product);
+	?>
+	<div class="Support-products-section">
+		<p class="text1">We offer two Probio Support products, with clinical trials demonstrating the efficacy of both.</p>
+		<div class="main-container">			
+			<div class="mobile-hide">
+				<div class="product-box product-box-left">
+					<div class="left"><a href="<?php echo $this->getUrl('shop/products/bioharmony-balance.html')?>" ><img src="<?php echo $this->getSkinUrl('images/Support-product1.jpg'); ?>"></a></div>
+					<div class="right">
+						<a href="<?php echo $this->getUrl('shop/products/bioharmony-balance.html')?>" ><h4 class="purple">Bioharmony Balance <sup>10</sup></h4></a>
+						<p>A symbiotic dietary supplement to help improve digestive comfort and reduce flatulence, bloating and abdominal pain. It combines complementary ingredients such as carefully selected friendly probiotics, to restore the intestinal microbiota balance and act upon symptoms linked to irritable bowel syndrome, and Fructooligosaccharides (FOS) to stimulate good bacteria growth and improve transit disorders.</p>
+						<a href="<?php echo $bioharmony_url;?>" class="btn">SHOP NOW</a>
+					</div>
+				</div>
+				<div class="product-box product-box-right">				
+					<div class="right">
+						<a href="<?php echo $this->getUrl('shop/products/immunity-support.html')?>" ><h4 class="blue">Immunity Support <sup>11</sup></h4></a>
+						<p>A dietary supplement to help strengthen your body’s defence system against viruses and pathogenic agents. It’s a combination of carefully selected probiotics, which restore the intestinal microbiota balance, as well as Vitamin D to help your immune system function normally.</p>
+						<a href="<?php echo $immunity_url;?>" class="btn">SHOP NOW</a>
+					</div>
+					<div class="left"><a href="<?php echo $this->getUrl('shop/products/immunity-support.html')?>" ><img src="<?php echo $this->getSkinUrl('images/Support-product2.jpg'); ?>"></a></div>
+				</div>
+			</div>
+
+			<div class="mobile-show">
+				<div class="product-box product-box-left">
+					<div class="left">
+						<a href="<?php echo $this->getUrl('shop/products/bioharmony-balance.html')?>" ><h4 class="purple">Bioharmony Balance <sup>10</sup></h4></a>
+						<a href="<?php echo $this->getUrl('shop/products/bioharmony-balance.html')?>" ><img src="<?php echo $this->getSkinUrl('images/Support-product1.jpg'); ?>"></a>
+					</div>
+					<div class="right">						
+						<p>A symbiotic dietary supplement to help improve digestive comfort and reduce flatulence, bloating and abdominal pain. It combines complementary ingredients such as carefully selected friendly probiotics, to restore the intestinal microbiota balance and act upon symptoms linked to irritable bowel syndrome, and Fructooligosaccharides (FOS) to stimulate good bacteria growth and improve transit disorders.</p>
+						<a href="<?php echo $bioharmony_url;?>" class="btn">SHOP NOW</a>
+					</div>
+				</div>
+				<div class="product-box product-box-right">				
+					<div class="right">
+						<a href="<?php echo $this->getUrl('shop/products/immunity-support.html')?>" ><h4 class="blue">Immunity Support <sup>11</sup></h4></a>
+						<div class="left"><a href="<?php echo $this->getUrl('shop/products/immunity-support.html')?>" ><img src="<?php echo $this->getSkinUrl('images/Support-product2.jpg'); ?>"></a></div>
+						<p>A dietary supplement to help strengthen your body’s defence system against viruses and pathogenic agents. It’s a combination of carefully selected probiotics, which restore the intestinal microbiota balance, as well as Vitamin D to help your immune system function normally.</p>
+						<a href="<?php echo $immunity_url;?>" class="btn">SHOP NOW</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="faq-section">
+		<div class="title2">FAQ</div>
+		<div class="main-container">
+			<div class="faq-accordion">
+				<div class="faq-accordion-panle">
+					<div class="accordionButton on">What’s the difference between probiotics and prebiotics? </div>
+					<div class="accordionContent" style="display: block;">Probiotics are beneficial microorganisms naturally present in our bodies. Prebiotics are nutrients for these microorganisms, improving their growth and survival rate. </div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">How do probiotics and prebiotics work and how can they benefit me? </div>
+					<div class="accordionContent">The digestive system is mainly made of microorganisms that help to break down and digest food, protect us from pathogens, regulate our immune system and produce vitamins. <sup>13</sup> Probiotics and prebiotics are a way of restoring and preventing a microbiota imbalance. The different live strains found inside Probio Support can recolonise the gut for good health.
+					</div>
+				</div>	
+
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">How is the Probio Support range different from other probiotic brands?</div>
+					<div class="accordionContent">Probio Support is a range of dietary supplements with ferment lactic, vitamins and prebiotics, providing more than enough CFUs (colony forming units) needed for effective daily care. The mixture of probiotics may act in synergy and be more effective than one live strain.</div>
+				</div>	
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">Who is Probio Support for? </div>
+					<div class="accordionContent">Microbiota is essential throughout our lives. Immunity Support and Bioharmony Balance are for people of all ages to help maintain or restore a healthy, balanced gut flora.
+					</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">What are the different live strains in Probio Support and how do they help? </div>
+					<div class="accordionContent">Bioharmony Balance contains Lactobacillus Acidophilus, Lactobacillus Casei and Streptococcus Thermophilus and Fructooligosaccharides (FOS). Clinical studies show that these improve digestive comfort by reducing bloating, abdominal pain, constipation and bowel movements. <sup>12,14,15,16</sup>
+						<p></p>
+						<p>Immunity Support contains Lactobacillus Acidophilus, Lactobacillus Rhamnosus GG, Bifidobacterium Animalis Lactis and Bifidobacterium bifidum and Vitamin D. Clinical trials show that these strains reduce intestinal and respiratory infections by strengthening the immune system. <sup>17,18,19</sup></p>
+					</div>
+				</div>	
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">Which is more effective: prevention or cure? </div>
+					<div class="accordionContent">Prevention is the most effective method as it is easier to prevent microbiota deregulation and imbalance than it is to restore it.</div>
+				</div>	
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">How often should I take Bioharmony Balance and Immunity Support?</div>
+					<div class="accordionContent">For prevention, we recommend one capsule each day for one month,  repeated every three months to regulate your microbiota balance throughout the seasons and stay in good health.
+						<p></p>
+						<p>For a cure, take one capsule each day until symptoms disappear. Then take one capsule a day for one month and repeat every three months.</p>
+					</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">Should I take Bioharmony Balance as well as Immunity Support?</div>
+					<div class="accordionContent">Many Hello Day customers take both for optimum results. Bioharmony Balance is the gold standard to restore and maintain healthy microbiota all year round while Immunity Support is ideal during cooler months against infections, or during Spring and Summer against allergies.</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">How long will it take to see results with Probio Support? </div>
+					<div class="accordionContent">Clinical trials have proven that effects can be seen with a prescribed dose of at least 10,000 CFUs (Colony Forming Units) and are visible within 15 days of starting treatment. </div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">I’m suffering from IBS (Irritable Bowel Syndrome) – how can Bioharmony Balance help me?</div>
+					<div class="accordionContent">Probiotics are believed to help alleviate IBS symptoms. Bioharmony Balance helps reduce the most common digestive disorders and discomforts such as bloating, flatulence and bowel movements.</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">Are Bioharmony Balance and Immunity Support lactose/gluten free and suitable for vegans?</div>
+					<div class="accordionContent">Certainly: they’re suitable if you are gluten or lactose intolerant or on a vegan diet.</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">What about those suffering from chronic illnesses (diabetes, high cholesterol?)</div>
+					<div class="accordionContent">The strains used are also suitable following treatments for chronic illnesses and can be taken without problems to treat any related illnesses and associated discomforts.</div>
+				</div>
+				<div class="faq-accordion-panle">
+					<div class="accordionButton">Can I take probiotics if I’m pregnant?</div>
+					<div class="accordionContent">Yes, in fact probiotics are recommended during pregnancy so that a balanced and diversified microbiota can be passed on to your baby.</div>
+				</div>
+
+			</div>
+			<div class="References">
+				<div class="title2">References</div>
+				<div class="probobiotics mobile-hide">
+					<div class="left">
+						1. Bermon S, Petriz B, Kajeniene A, Prestes J, Castell L, Franco OL, The microbiota: an exercise immunology perspective. Exerc Immunol Rev. 2015;21:70-9.<br><br>
+						2. Rupa P, Mine Y. Recent advances in the role of probiotics in human inflammation and gut health. J Agric Food Chem. 2012 Aug 29;60(34):8249-56. doi: 10.1021/jf301903t. Epub 2012 Aug 16.<br><br>
+						3. Hawrelak JA, Myers SP. The causes of intestinal dysbiosis: a review. Altern Med Rev. 2004 Jun;9(2):180-97.<br><br>
+						4. Borchers AT, Selmi C, Meyers FJ, Keen CL, Gershwin ME. Probiotics and immunity. J Gastroenterol. 2009;44(1):26-46. doi: 10.1007/s00535-008-2296-0. Epub 2009 Jan 22.<br><br>
+						5. Maslowski KM, Mackay CR. Diet, gut microbiota and immune responses. Nat Immunol. 2011 Jan;12(1):5-9. doi: 10.1038/ni0111-5.<br><br>
+						6. Gill H, Prasad J. Probiotics, immunomodulation, and health benefits. Adv Exp Med Biol. 2008;606:423-54. doi: 10.1007/978-0-387-74087-4_17.<br><br>
+						7. FAO/WHO, Joint FAO/WHO Expert Consultation on evaluation of health and nutritional properties of probiotics in food including powder milk with live lactic acid bacteria. Cordoba, Argentina, October 2001.<br><br>
+						8. Qin J, Li R, Raes J, Arumugam M, Burgdorf KS, Manichanh C, Nielsen T, Pons N, Levenez F, Yamada T, Mende DR, Li J, Xu J, Li S, Li D, Cao J, Wang B, Liang H, Zheng H, Xie Y, Tap J, Lepage P, Bertalan M, Batto JM, Hansen T, Le Paslier D, Linneberg A, Nielsen HB, Pelletier E, Renault P, Sicheritz-Ponten T, Turner K, Zhu H, Yu C, Li S, Jian M, Zhou Y, Li Y, Zhang X, Li S, Qin N, Yang H, Wang J, Brunak S, Doré J, Guarner F, Kristiansen K, Pedersen O, Parkhill J, Weissenbach J; MetaHIT Consortium, Bork P, Ehrlich SD, Wang J. A human gut microbial gene catalogue established by metagenomic sequencing. Nature. 2010 Mar 4;464(7285):59-65. doi: 10.1038/nature08821.<br><br>
+						9. Bertazzoni E, Donelli G, Midtvedt T, Nicoli J, Sanz Y. Probiotics and clinical effects: is the number what counts? J Chemother. 2013 Aug;25(4):193-212. doi: 10.1179/1973947813Y.0000000078.<br><br>
+						10. Sinn et al. ; 2008, Sakai T. et al. ; 2015, Dietrich CG et al. ; 2014<br><br>
+					</div>
+					<div class="right">
+
+						11. Hojsak et al. (2010), Smith et al. (2013), Rerksuppaphol et al. (2010)<br><br>
+						12. Basic aspects and pharmacology of probiotics: an overview of pharmacokinetics, mechanisms of action and side-effects. P. Marteau, F. Shanahan. Elsevier, Volume 17, Issue 5, October 2003, Pages 725-740.<br><br>
+						13. Chapitre 13, Microbiote et immunité intestinale. Les fondamentaux de la pathologie digestive. CDU-HGE/Editions Elesevier-Masson - Octobre 2014.<br><br>
+						14. Effect of fermented milk containing Lactobacillus casei strain Shirota on constipation-related symptoms and haemorrhoids in women during puerperium. Sakai T., Kubota H., Gawad A., Gheyle L., Ramael S., Oishi K.. Benef Microbes. 2015;6(3):253-62.<br><br>
+						15. Efficacy of probiotics in irritable bowel syndrome: a meta-analysis of randomized controlled trials. Nikfar, S., Rahimi, R., Rahimi, F. et al. Dis Colon Rectum (2008) 51: 1775<br><br>
+						16. Lactobacillus acidophilus NCFM affects colonic mucosal opioid receptor expression in patients with functional abdominal pain - a randomised clinical study. Ringel-Kulka T1, Goldsmith JR, Carroll IM, Barros SP, Palsson O, Jobin C, Ringel Y. Aliment Pharmacol Ther. 2014 Jul;40(2):200-7.<br><br>
+						17. Lactobacillus gasseri KS-13, Bifidobacterium bifidum G9-1, and Bifidobacterium longum MM-2 Ingestion Induces a Less Inflammatory Cytokine Profile and a Potentially Beneficial Shift in Gut Microbiota in Older Adults: A Randomized, Double-Blind, Placebo-Controlled, Crossover Study. Spaiser SJ, Culpepper T, Nieves C Jr, Ukhanova M, Mai V, Percival SS, Christman MC,4, Langkamp-Henken B. J Am Coll Nutr. 2015;34(6):459-69.<br><br>
+						18. Lactobacillus GG in the prevention of gastrointestinal and respiratory tract infections in children who attend day care centers: a randomized, double-blind, placebo-controlled trial. Hojsak I, Snovak N, Abdović S, Szajewska H, Misak Z, Kolacek S. Clin Nutr. 2010 Jun;29(3):312-6.<br><br>
+						19. Probiotics in the management of atopic eczema. Isolauri E1, Arvola T, Sütas Y, Moilanen E, Salminen S. Clin Exp Allergy. 2000 Nov;30(11):1604-10.<br><br>
+
+					</div>
+				</div>
+				<div class="probobiotics_more mobile-show">
+					1. Bermon S, Petriz B, Kajeniene A, Prestes J, Castell L, Franco OL, The microbiota: an exercise immunology perspective. Exerc Immunol Rev. 2015;21:70-9.<br><br>
+					2. Rupa P, Mine Y. Recent advances in the role of probiotics in human inflammation and gut health. J Agric Food Chem. 2012 Aug 29;60(34):8249-56. doi: 10.1021/jf301903t. Epub 2012 Aug 16.<br><br>
+					3. Hawrelak JA, Myers SP. The causes of intestinal dysbiosis: a review. Altern Med Rev. 2004 Jun;9(2):180-97.<br><br>
+					4. Borchers AT, Selmi C, Meyers FJ, Keen CL, Gershwin ME. Probiotics and immunity. J Gastroenterol. 2009;44(1):26-46. doi: 10.1007/s00535-008-2296-0. Epub 2009 Jan 22.<br><br>
+					5. Maslowski KM, Mackay CR. Diet, gut microbiota and immune responses. Nat Immunol. 2011 Jan;12(1):5-9. doi: 10.1038/ni0111-5.<br><br>
+					6. Gill H, Prasad J. Probiotics, immunomodulation, and health benefits. Adv Exp Med Biol. 2008;606:423-54. doi: 10.1007/978-0-387-74087-4_17.<br><br>
+					7. FAO/WHO, Joint FAO/WHO Expert Consultation on evaluation of health and nutritional properties of probiotics in food including powder milk with live lactic acid bacteria. Cordoba, Argentina, October 2001.<br><br>
+					8. Qin J, Li R, Raes J, Arumugam M, Burgdorf KS, Manichanh C, Nielsen T, Pons N, Levenez F, Yamada T, Mende DR, Li J, Xu J, Li S, Li D, Cao J, Wang B, Liang H, Zheng H, Xie Y, Tap J, Lepage P, Bertalan M, Batto JM, Hansen T, Le Paslier D, Linneberg A, Nielsen HB, Pelletier E, Renault P, Sicheritz-Ponten T, Turner K, Zhu H, Yu C, Li S, Jian M, Zhou Y, Li Y, Zhang X, Li S, Qin N, Yang H, Wang J, Brunak S, Doré J, Guarner F, Kristiansen K, Pedersen O, Parkhill J, Weissenbach J; MetaHIT Consortium, Bork P, Ehrlich SD, Wang J. A human gut microbial gene catalogue established by metagenomic sequencing. Nature. 2010 Mar 4;464(7285):59-65. doi: 10.1038/nature08821.<br><br>
+					9. Bertazzoni E, Donelli G, Midtvedt T, Nicoli J, Sanz Y. Probiotics and clinical effects: is the number what counts? J Chemother. 2013 Aug;25(4):193-212. doi: 10.1179/1973947813Y.0000000078.<br><br>
+					10. Sinn et al. ; 2008, Sakai T. et al. ; 2015, Dietrich CG et al. ; 2014<br><br>
+
+					11. Hojsak et al. (2010), Smith et al. (2013), Rerksuppaphol et al. (2010)<br><br>
+					12. Basic aspects and pharmacology of probiotics: an overview of pharmacokinetics, mechanisms of action and side-effects. P. Marteau, F. Shanahan. Elsevier, Volume 17, Issue 5, October 2003, Pages 725-740.<br><br>
+					13. Chapitre 13, Microbiote et immunité intestinale. Les fondamentaux de la pathologie digestive. CDU-HGE/Editions Elesevier-Masson - Octobre 2014.<br><br>
+					14. Effect of fermented milk containing Lactobacillus casei strain Shirota on constipation-related symptoms and haemorrhoids in women during puerperium. Sakai T., Kubota H., Gawad A., Gheyle L., Ramael S., Oishi K.. Benef Microbes. 2015;6(3):253-62.<br><br>
+					15. Efficacy of probiotics in irritable bowel syndrome: a meta-analysis of randomized controlled trials. Nikfar, S., Rahimi, R., Rahimi, F. et al. Dis Colon Rectum (2008) 51: 1775<br><br>
+					16. Lactobacillus acidophilus NCFM affects colonic mucosal opioid receptor expression in patients with functional abdominal pain - a randomised clinical study. Ringel-Kulka T1, Goldsmith JR, Carroll IM, Barros SP, Palsson O, Jobin C, Ringel Y. Aliment Pharmacol Ther. 2014 Jul;40(2):200-7.<br><br>
+					17. Lactobacillus gasseri KS-13, Bifidobacterium bifidum G9-1, and Bifidobacterium longum MM-2 Ingestion Induces a Less Inflammatory Cytokine Profile and a Potentially Beneficial Shift in Gut Microbiota in Older Adults: A Randomized, Double-Blind, Placebo-Controlled, Crossover Study. Spaiser SJ, Culpepper T, Nieves C Jr, Ukhanova M, Mai V, Percival SS, Christman MC,4, Langkamp-Henken B. J Am Coll Nutr. 2015;34(6):459-69.<br><br>
+					18. Lactobacillus GG in the prevention of gastrointestinal and respiratory tract infections in children who attend day care centers: a randomized, double-blind, placebo-controlled trial. Hojsak I, Snovak N, Abdović S, Szajewska H, Misak Z, Kolacek S. Clin Nutr. 2010 Jun;29(3):312-6.<br><br>
+					19. Probiotics in the management of atopic eczema. Isolauri E1, Arvola T, Sütas Y, Moilanen E, Salminen S. Clin Exp Allergy. 2000 Nov;30(11):1604-10.<br><br>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+jQuery(document).ready(function() {
+	jQuery('.accordionButton').click(function() {
+		jQuery('.accordionButton').removeClass('on');
+		jQuery('.accordionContent').slideUp('normal');
+		if(jQuery(this).next().is(':hidden') == true) {	
+			jQuery(this).addClass('on');
+			jQuery(this).next().slideDown('normal');
+		} 
+	});	
+	if (jQuery(window).width() < 767) {
+	    var showChar = 300;  // How many characters are shown by default
+	    var ellipsestext = "...";
+	    var moretext = "Show more >";
+	    var lesstext = "Show less >";
+	    
+
+	    jQuery('.probobiotics_more').each(function() {
+	    	var content = jQuery(this).html();
+	    	if(content.length > showChar) {
+	    		var c = content.substr(0, showChar);
+	    		var h = content.substr(showChar, content.length - showChar);
+	    		var html = c + '<span class="moreellipses">' + ellipsestext+ '&nbsp;</span><span class="morecontent"><span>' + h + '</span>&nbsp;&nbsp;<a href="" class="morelink">' + moretext + '</a></span>';
+	    		jQuery(this).html(html);
+	    	}
+	    });
+	    jQuery(".morelink").click(function(){
+	    	if(jQuery(this).hasClass("less")) {
+	    		jQuery(this).removeClass("less");
+	    		jQuery(this).html(moretext);
+	    	} else {
+	    		jQuery(this).addClass("less");
+	    		jQuery(this).html(lesstext);
+	    	}
+	    	jQuery(this).parent().prev().toggle();
+	    	jQuery(this).prev().toggle();
+	    	return false;
+	    });
+	}
+});
+//]]> 
+
+</script>

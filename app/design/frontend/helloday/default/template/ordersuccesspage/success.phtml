@@ -1,0 +1,47 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<h2 class="sub-title"><?php echo $this->__('Thank you for your purchase!') ?></h2>
+
+<?php if ($this->getOrderId()): ?>
+    <p>
+        <?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?>
+        <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()) { ?>
+            <!-- guest order view/print -->
+            <?php $order_id = Mage::getSingleton('checkout/session')->getLastRealOrderId(); ?>
+            <?php $order_details = Mage::getModel('sales/order')->loadByIncrementId($order_id); ?>
+            <?php $billing_address_data = $order_details->getbillingAddress(); ?>
+        <form id="guest_form" action="<?php echo Mage::getUrl('sales/guest/view/', array('_secure' => true)) ?>" method="post" name="guest_form">
+            <input type="hidden" name="oar_order_id" value="<?php echo $order_id; ?>">
+            <input type="hidden" name="oar_billing_lastname" value="<?php echo $billing_address_data['lastname']; ?>">
+            <input type="hidden" name="oar_type" value="zip">
+            <input type="hidden" name="oar_email" value="">
+            <input type="hidden" name="oar_zip" value="<?php echo $billing_address_data['postcode']; ?>">
+            <p><?php echo $this->__('Click <a href="javascript:{}" onclick="document.getElementById(\'guest_form\').submit(); return false;">here to print</a> a copy of your order confirmation.'); ?></p>
+        </form>
+        <!-- end guest order view/print -->
+        <?php
+    } else {
+        echo $this->__('Click <a href="%s" onclick="this.target=\'_blank\'">here to print</a> a copy of your order confirmation.', $this->getPrintUrl());
+    }
+    ?>
+    </p>
+<?php endif; ?>
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId()))) ?></p>
+<?php endif; ?>
+
+<?php if ($profiles = $this->getRecurringProfiles()): ?>
+    <p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+    <ul class="disc">
+        <?php foreach ($profiles as $profile): ?>
+            <?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id'))); ?>
+            <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description'))) ?></li>
+        <?php endforeach; ?>
+    </ul> 
+<?php endif; ?>
+<?php if ($this->getOrderId()): ?>
+    <?php echo $this->getLayout()->createBlock('sales/order_info')->setTemplate('ordersuccesspage/info.phtml')->toHtml(); ?> 
+    <?php echo $this->getLayout()->createBlock('sales/order_items')->setTemplate('ordersuccesspage/items.phtml')->toHtml(); ?> 
+<?php endif; ?>
+<div class="buttons-set">
+    <button type="button" class="button" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location = '<?php echo Mage::getUrl('', array('_secure' => true)) ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+</div>

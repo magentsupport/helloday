@@ -1,0 +1,74 @@
+<?php
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. aheadWorks does not
+ * provide extension support in case of incorrect edition use.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Blog
+ * @version    tip
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?><?php $posts = $this->getPosts(); ?>
+<div id="messages_product_view">
+    <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?>
+    <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?>
+</div>
+
+<?php // echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
+<?php $postCount = 0; ?>
+<?php foreach ($posts as $post): ?>
+    <?php if ($postCount % 3 == 0) { ?>
+        <div class="row blog-box">
+        <?php } ?>
+        <div class="postWrapper">
+            <?php
+            $postImg = $post->getData('image');
+            if (!empty($postImg) && !is_null($postImg)) {
+                ?>
+                <div>
+                    <a title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getAddress(); ?>"> <img src="<?php echo Mage::getBaseUrl('media') . $post->getImage() ?>" title="<?php echo $post->getTitle(); ?>" alt="<?php echo $post->getTitle(); ?>" width="350px" height="350px"/></a>
+                </div>
+            <?php } else { ?>
+                <div>
+                    <a title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getAddress(); ?>"> <img src="<?php echo Mage::getSingleton('catalog/product_media_config')->getBaseMediaUrl() . '/placeholder/' . Mage::getStoreConfig("catalog/placeholder/small_image_placeholder"); ?>" title="<?php echo $post->getTitle(); ?>" alt="<?php echo $post->getTitle(); ?>" width="350px" height="350px"/></a>
+                </div>
+            <?php } ?>
+            <div class="postTitle">
+                <h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></h2>
+                <?php //echo '<pre>'; print_r($post->getData());die;// echo $post->getCreatedTime();   ?>
+            </div>
+            <?php
+            $_shore_desc = $post->getData('short_content');
+            if (!empty($_shore_desc)) {
+                ?>
+                <div class="postContent std"><?php echo Mage::helper('blog')->getviewMore($_shore_desc, $post->getAddress()); ?></div>
+            <?php } ?>
+            <?php echo $this->getBookmarkHtml($post) ?>
+            <div class="tags"><?php echo $this->getTagsHtml($post) ?></div>
+            <div class="postDetails">
+                <?php if ($this->getCommentsEnabled()): ?>
+                    <?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" > <?php echo Mage::helper('blog')->__('Comments'); ?></a> |
+                <?php endif; ?>
+
+            </div>        
+        </div>
+        <?php if (++$postCount % 3 == 0) { ?>
+        </div>
+    <?php } ?>
+<?php endforeach; ?>
+<?php //echo $this->getChildHtml('aw_blog_comments_toolbar');  ?>

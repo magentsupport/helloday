@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+	    <SSTech_Ordersuccesspage>
+	        <version>0.1.0</version>
+	    </SSTech_Ordersuccesspage>
+	</modules>
+	<global> 
+        <blocks>
+        	<ordersuccesspage><class>SSTech_Ordersuccesspage_Block</class></ordersuccesspage>
+           	<checkout>
+            	<rewrite>
+            		<onepage_success>SSTech_Ordersuccesspage_Block_Success</onepage_success> 
+            	</rewrite>
+           	</checkout>           
+        </blocks>   
+         <helpers>
+            <ordersuccesspage>
+                <class>SSTech_Ordersuccesspage_Helper</class>
+            </ordersuccesspage>   
+        </helpers>      
+  	</global>  
+    <frontend>
+        <routers>
+            <ordersuccesspage>
+                <use>standard</use>
+                <args>
+                    <module>SSTech_Ordersuccesspage</module>
+                    <frontName>ordersuccesspage</frontName>
+                </args>
+            </ordersuccesspage>
+        </routers>
+    </frontend>  	
+</config>
+
+
+	

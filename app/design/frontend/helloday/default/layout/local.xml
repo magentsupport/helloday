@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <!--<reference name="root">
+            <remove name="global_messages" />
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/messages" name="global_messages" template="core/messages.phtml" before="-" />
+        </reference>-->
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/rotated-words.js</name></action>
+        </reference>
+    </default>
+</layout>

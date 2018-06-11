@@ -1,0 +1,307 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<style>
+    /* Style the Image Used to Trigger the Modal */
+    #myImg {
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    #myImg:hover {opacity: 0.7;}
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+    }
+
+    /* Modal Content (Image) */
+    .modal-content {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+    }
+    .modal-content img{
+        max-width: 100%;
+    }
+
+    /* Caption of Modal Image (Image Text) - Same Width as the Image */
+    #caption {
+        margin: auto;
+        display: block;
+        width: 80%;
+        max-width: 700px;
+        text-align: center;
+        color: #ccc;
+        padding: 10px 0;
+        height: 150px;
+    }
+
+    /* Add Animation - Zoom in the Modal */
+    .modal-content, #caption {
+        -webkit-animation-name: zoom;
+        -webkit-animation-duration: 0.6s;
+        animation-name: zoom;
+        animation-duration: 0.6s;
+    }
+
+    @-webkit-keyframes zoom {
+        from {-webkit-transform:scale(0)}
+        to {-webkit-transform:scale(1)}
+    }
+
+    @keyframes zoom {
+        from {transform:scale(0)}
+        to {transform:scale(1)}
+    }
+
+    /* The Close Button */
+    .close {
+        position: absolute;
+        top: 15px;
+        right: 35px;
+        color: #f1f1f1;
+        font-size: 40px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #bbb;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    /* 100% Image Width on Smaller Screens */
+    @media only screen and (max-width: 700px){
+        .modal-content {
+            width: 100%;
+        }
+    }
+</style>
+<?php
+/**
+ * Shopping cart template
+ *
+ * @var $this Mage_Checkout_Block_Cart
+ */
+?>
+<?php $_priceDisplay = ($this->helper('tax')->displayCartBothPrices()) ? 'display-both-prices' : 'display-single-price'; ?>
+<div class="cart <?php echo $_priceDisplay; ?>">
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('Basket') ?></h1>
+        <?php if(!$this->hasError()): ?>
+        <ul class="checkout-types top">
+        <?php foreach ($this->getMethods('top_methods') as $method): ?>
+            <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+            <li><?php echo $methodHtml; ?></li>
+            <?php endif; ?>
+        <?php endforeach; ?>
+        </ul>
+        <?php endif; ?>
+    </div>
+    <?php echo $this->getMessagesBlock()->toHtml() ?>
+    <?php echo $this->getChildHtml('form_before') ?>
+    <form action="<?php echo $this->getFormActionUrl() ?>" method="post">
+        <?php echo $this->getBlockHtml('formkey'); ?>
+        <table id="shopping-cart-table" class="cart-table data-table">
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <col width="1" />
+            <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+            <col width="1" />
+            <col width="1" />
+            <?php endif; ?>
+
+        <?php $mergedCells = ($this->helper('tax')->displayCartBothPrices() ? 2 : 1); ?>
+            <thead>
+                <tr>
+                    <th rowspan="<?php echo $mergedCells; ?>"><span class="nobr"><?php echo $this->__('Product') ?></span></th>
+
+                    <th rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
+
+                    <th class="a-center cart-price-head" colspan="<?php echo $mergedCells; ?>">
+<!--                            <div class="cart-price-placeholder">-->
+                            <span class="nobr"><?php echo $this->__('Price') ?></span>
+<!--                            </div>-->
+                    </th>
+
+                    <th rowspan="<?php echo $mergedCells; ?>" class="a-center">
+                        <?php echo $this->__('Qty') ?>
+
+                        <?php /*if ($this->helper('wishlist')->isAllowInCart()) : ?>
+                            <span class="nobr"><?php echo $this->__('Move to Wishlist') ?></span>
+                        <?php endif*/ ?>
+
+                    </th>
+
+                    <th class="a-center cart-total-head" colspan="<?php echo $mergedCells; ?>">
+<!--                            <div class="cart-total-placeholder">-->
+                            <?php echo $this->__('Subtotal') ?>
+<!--                            </div>-->
+                    </th>
+
+                    <th class="a-center" rowspan="<?php echo $mergedCells; ?>">&nbsp;</th>
+
+                </tr>
+                <?php if ($this->helper('tax')->displayCartBothPrices()): ?>
+                <tr>
+                    <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th class="a-center cart-price-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                    <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(false) ?></th>
+                    <th class="a-center cart-total-head"><?php echo $this->helper('tax')->getIncExcTaxLabel(true) ?></th>
+                </tr>
+                <?php endif; ?>
+            </thead>
+            <tfoot>
+                <tr>
+                    <td colspan="50" class="a-right cart-footer-actions">
+
+                        <!-- Make this button the first responder rather than empty cart -->
+                        <!-- <button type="submit" style="visibility:hidden;" data-cart-item-update name="update_cart_action" value="update_qty" title="<?php //echo $this->quoteEscape($this->__('Update Shopping Cart')); ?>" class="button2 btn-update"><span><span><?php //echo $this->__('Update Shopping Cart'); ?></span></span></button> -->
+						
+						<button type="submit" name="update_cart_action" data-cart-empty value="empty_cart" title="<?php echo $this->quoteEscape($this->__('Empty Basket')); ?>" class="button2 btn-empty" id="empty_cart_button"><span><span><?php echo $this->__('Empty Basket'); ?></span></span></button>
+						
+						<button type="submit" name="update_cart_action" data-cart-item-update value="update_qty" title="<?php echo $this->quoteEscape($this->__('Update Basket')); ?>" class="button2 btn-update"><span><span><?php echo $this->__('Update Basket'); ?></span></span></button>
+						
+						<span class="or">-<?php echo $this->__('or'); ?>-</span>
+						
+						<?php if($this->getContinueShoppingUrl()): ?>
+                            <button type="button" title="<?php echo $this->quoteEscape($this->__('Continue Shopping')) ?>" class="button2 btn-continue" onclick="setLocation('<?php echo Mage::helper('core')->quoteEscape(Mage::getUrl('shop/products.html',array('_secure'=>true))) ?>')"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>
+                        <?php endif; ?>
+
+                        <!--[if lt IE 8]>
+                        <input type="hidden" id="update_cart_action_container" data-cart-item-update />
+                        <script type="text/javascript">
+                        //<![CDATA[
+                            Event.observe(window, 'load', function()
+                            {
+                                // Internet Explorer (lt 8) does not support value attribute in button elements
+                                $emptyCartButton = $('empty_cart_button');
+                                $cartActionContainer = $('update_cart_action_container');
+                                if ($emptyCartButton && $cartActionContainer) {
+                                    Event.observe($emptyCartButton, 'click', function()
+                                    {
+                                        $emptyCartButton.setAttribute('name', 'update_cart_action_temp');
+                                        $cartActionContainer.setAttribute('name', 'update_cart_action');
+                                        $cartActionContainer.setValue('empty_cart');
+                                    });
+                                }
+
+                            });
+                        //]]>
+                        </script>
+                        <![endif]-->
+                    </td>
+                </tr>
+            </tfoot>
+            <tbody>
+            <?php foreach($this->getItems() as $_item): ?>
+                <?php echo $this->getItemHtml($_item) ?>
+            <?php endforeach ?>
+            </tbody>
+        </table>
+        <script type="text/javascript">decorateTable('shopping-cart-table')</script>
+    </form>
+
+    <?php echo $this->getChildHtml('shopping.cart.table.after'); ?>
+    <div class="cart-forms">
+        <?php /* Extensions placeholder */ ?>
+        <?php echo $this->getChildHtml('checkout_cart_widget') ?>
+        <?php echo $this->getChildHtml('coupon') ?>
+        <?php echo $this->getChildHtml('checkout.cart.extra') ?>
+        <?php //if (!$this->getIsVirtual()): echo $this->getChildHtml('shipping'); endif; ?>
+    </div>
+    <div class="cart-totals-wrapper">
+        <div class="cart-totals">
+            <?php echo $this->getChildHtml('totals'); ?>
+            <?php if(!$this->hasError()): ?>
+            <ul class="checkout-types bottom">
+            <?php foreach ($this->getMethods('methods') as $method): ?>
+                <?php if ($methodHtml = $this->getMethodHtml($method)): ?>
+                <li class="method-<?php echo preg_replace("/[^_a-zA-Z0-9-]/", '-', $method); ?>"><?php echo $methodHtml; ?></li>
+                <?php endif; ?>
+            <?php endforeach; ?>
+            </ul>
+            <?php endif; ?>
+        </div>
+    </div>
+    <?php echo $this->getChildHtml('crosssell') ?>
+
+</div>
+<?php
+$_sku = 'xmascard';
+$_catalog = Mage::getModel('catalog/product');
+$_productId = $_catalog->getIdBySku($_sku);
+$_product = Mage::getModel('catalog/product')->load($_productId);
+$img =  $this->helper('catalog/image')->init($_product, 'small_image')->resize(200, 200);
+//$img2 =  $this->helper('catalog/image')->init($_product, 'small_image')->resize(200, 200);
+
+$_url = Mage::helper('checkout/cart')->getAddUrl($_product);
+?>
+
+<!--<div class="xmas">
+   <div class ="xmas-img" id ="ximg"><img id = "myImg" src="<?php /*echo $img */?>"/>
+       <button type="button" title="<?php /*echo $this->quoteEscape($this->__('Shop Now')) */?>" class="button btn-cart custom-shop-btn" onclick="setLocation('<?php /*echo $_url */?>')"><span><span><?php /*echo $this->__('Shop Now') */?></span></span></button>
+   </div>
+   <div class="xmas-info">
+       <h2>Save Time On Your Xmas Shopping</h2>
+       <h3>Get A Beautiful Greetings Card For Just &pound;2.50</h3>
+   </div>
+</div>
+<div id="custom-popup" class="modal">
+    <span class="close">&times;</span>
+   <div class="modal-content">
+       <img src="<?php /*echo Mage::getBaseUrl('media').'wysiwyg/xmascard.png'*/?>" alt="" />
+   </div>
+</div>
+
+<script>
+    jQuery(document).ready(function(){
+        jQuery('#myImg').live('click', function() {
+            jQuery('#custom-popup').show('');
+        });
+        jQuery('.close').live('click', function() {
+            jQuery('#custom-popup').hide('');
+        });
+    });
+</script>-->

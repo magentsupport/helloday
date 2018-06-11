@@ -1,0 +1,18 @@
+/*
+* Bridge Batchcode
+*
+* @category      Bridge
+* @package       Bridge_Batchcode
+* @copyright     Copyright (c) 2013 Bridge India. (http://bridge-india.in)
+* @license       http://bridge-india.in/disclaimer/magento
+*/
+    .column_h {
+    margin: 5px;
+    margin-left: 10px;
+}
+.column_n {
+    width: 100px;
+      margin: 5px;
+    margin-right: 10px;
+    float: left;
+}

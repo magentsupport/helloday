@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Helloday_Mail>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Dg_Pricerulesextended/>
+                <ES_Newssubscribers/>
+                <Ebizmarts_MailChimp/>
+                <Mage_Newsletter/>
+                <Mage_Core/>
+                <Mage_Contacts/>
+            </depends>
+        </Helloday_Mail>
+    </modules>
+</config>

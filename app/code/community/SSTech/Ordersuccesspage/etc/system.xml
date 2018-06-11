@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+      <tabs>
+        <sstech translate="label" module="ordersuccesspage">
+            <label>SSTech Extension</label>
+            <sort_order>0</sort_order>
+        </sstech>
+      </tabs>
+      <sections>
+        <ordersuccesspage  translate="label" module="ordersuccesspage">                    
+        <label>Order Success Page</label>
+        <tab>sstech</tab>
+        <frontend_type>text</frontend_type>
+        <sort_order>0</sort_order>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>            
+                    <groups>
+                      <ordersuccesspage translate="label"> 
+                      <label>Order Success Page</label>
+                      <frontend_type>text</frontend_type>
+                      <sort_order>0</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+                       <fields>
+                          <showshippinginformation translate="label">
+                            <label>Show Billing and Payment information on success page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                             <comment>Enable and disable shipping and Payment Information block</comment>
+                          </showshippinginformation>
+                            <showproductinformation translate="label">
+                            <label>Show Product information on success page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Enable and Disable product Information block</comment>
+                          </showproductinformation>
+                       </fields>
+                       </ordersuccesspage>
+                    </groups>
+        </ordersuccesspage>
+      </sections>
+</config>

@@ -1,0 +1,539 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php
+$productDate = date('M d Y', strtotime($_product->getProductDate()));
+//if ($_product->getSku() == 'Vitality-Boost') {
+//    $productDate = ' ';
+//} else {
+//    $productDate = date('M d Y', strtotime($_product->getProductDate()));
+//}
+$productPreOrderText = $_product->getProductPreOrderText();
+//if (!empty($productPreOrderText) && !empty($productDate)) {
+//    $extraOptions = $productPreOrderText . ' ' . $productDate;
+//}
+$extraOptions = $productPreOrderText;
+?>
+<?php $_ProductType = $_product->getTypeId(); ?>
+<?php if ($_ProductType != "bundle") { ?>
+
+    <?php
+    /* Show Accordion for the products */
+
+    $product_accrodion_1 = $_product->getData('product_view_1');
+    $product_accrodion_2 = $_product->getData('product_view_2');
+    $product_accrodion_3 = $_product->getData('product_view_3');
+    $product_accrodion_4 = $_product->getData('product_view_4');
+    ?>
+    <script type="text/javascript">
+        var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+    </script>
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+    <div class="product-view">
+        <div class="product-essential">
+            <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                <?php echo $this->getBlockHtml('formkey') ?>
+                <div class="no-display">
+                    <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                    <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    <?php if (!empty($extraOptions)) { ?>
+                        <input type="hidden" name="extra_options" id="extra_options" value="<?php echo $extraOptions; ?>" />
+                    <?php } ?>
+                </div>
+               
+                <div class="product-view-img-left">
+                    <div class="product-img-box">
+                        <?php echo $this->getChildHtml('media') ?>
+                    </div>
+                </div>
+                <div class="product-view-detail-right">
+                
+                    <div class="product-shop">
+                        <div class="product-name">
+                            <span class="h1"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></span>
+                        </div>
+                        <div class="price-info">
+                            <?php echo $this->getPriceHtml($_product); ?>
+                            <?php echo $this->getChildHtml('bundle_prices') ?>
+                            <?php echo $this->getTierPriceHtml() ?>
+                        </div>
+
+                        <div class="extra-info">
+                            <?php echo $this->getReviewsSummaryHtml($_product) ?>
+
+                            <?php echo $this->getChildHtml('product_type_availability'); ?>
+                        </div>
+                        <!-- if product pre order text is set from admin (Arvind 4-1-2017)-->
+                        <?php /* if (isset($productPreOrderText) && !empty($productPreOrderText) && isset($productDate) && $productDate != null) { ?>
+                          <div class="product-pre-order-text">
+                          <?php
+                          if ($_product->getSku() == 'Vitality-Boost') {
+                          $productPreOrderDate = ' ';
+                          } else {
+                          $productPreOrderDate = date('M d Y', strtotime($_product->getProductDate()));
+                          }
+                          echo $productPreOrderText . ' ' . $productPreOrderDate;
+                          ?>
+                          </div>
+                          <?php } */ ?> 
+                        <div class="product-pre-order-text">
+                            <?php
+                            //echo $productPreOrderText;
+                            ?> 
+                        </div>
+                        <?php echo $this->getChildHtml('alert_urls') ?>
+
+                        <?php if ($_product->getShortDescription()): ?>
+                            <div class="short-description">
+                                <div class="std"><?php echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?></div>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="product-accordion">
+
+                            <?php if (!empty($product_accrodion_1)) { ?>
+
+                                <a class="accordion"><?php echo $_product->getResource()->getAttribute('product_view_1')->getFrontendLabel(); ?></a>
+                                <div class="panel">
+                                    <p><?php echo $product_accrodion_1 ?></p>
+                                </div>
+
+                            <?php } ?>
+
+                            <?php if (!empty($product_accrodion_2)) { ?>
+
+                                <a class="accordion"> <?php echo$_product->getResource()->getAttribute('product_view_2')->getFrontendLabel(); ?></a>
+                                <div class="panel">
+                                    <p><?php echo $product_accrodion_2 ?></p>
+                                </div>
+
+                            <?php } ?>
+                            <?php if (!empty($product_accrodion_3)) { ?>
+
+                                <a class="accordion"><?php echo $_product->getResource()->getAttribute('product_view_3')->getFrontendLabel(); ?></a>
+                                <div class="panel">
+                                    <p><?php echo $product_accrodion_3 ?></p>
+                                </div>
+
+                            <?php } ?>
+                            <?php if (!empty($product_accrodion_4)) { ?>
+
+                                <a class="accordion"><?php echo $_product->getResource()->getAttribute('product_view_4')->getFrontendLabel(); ?></a>
+                                <div class="panel">
+                                    <p><?php echo $product_accrodion_4 ?></p>
+                                </div>
+
+                            <?php } ?>
+                        </div>
+
+                    </div>
+
+                    <div class="add-to-cart-wrapper">
+
+
+                        <?php if (!$this->hasOptions()): ?>
+                            <div class="add-to-box">
+                                <?php if ($_product->isSaleable()): ?>
+                                    <?php echo $this->getChildHtml('addtocart') ?>
+                                    <?php if ($this->helper('wishlist')->isAllow() || $_compareUrl = $this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                                        <span class="or"><?php echo $this->__('OR') ?></span>
+                                    <?php endif; ?>
+                                <?php endif; ?>
+
+                            </div>
+
+
+                        <?php endif; ?>
+
+                    </div>
+                </div>
+
+
+                <div class="clearer"></div>
+
+            </form>
+            <script type="text/javascript">
+                //<![CDATA[
+                var productAddToCartForm = new VarienForm('product_addtocart_form');
+                productAddToCartForm.submit = function(button, url) {
+                    if (this.validator.validate()) {
+                        var form = this.form;
+                        var oldUrl = form.action;
+
+                        if (url) {
+                            form.action = url;
+                        }
+                        var e = null;
+                        try {
+                            this.form.submit();
+                        } catch (e) {
+                        }
+                        this.form.action = oldUrl;
+                        if (e) {
+                            throw e;
+                        }
+
+                        if (button && button != 'undefined') {
+                            button.disabled = true;
+                        }
+                    }
+                }.bind(productAddToCartForm);
+
+                productAddToCartForm.submitLight = function(button, url) {
+                    if (this.validator) {
+                        var nv = Validation.methods;
+                        delete Validation.methods['required-entry'];
+                        delete Validation.methods['validate-one-required'];
+                        delete Validation.methods['validate-one-required-by-name'];
+                        // Remove custom datetime validators
+                        for (var methodName in Validation.methods) {
+                            if (methodName.match(/^validate-datetime-.*/i)) {
+                                delete Validation.methods[methodName];
+                            }
+                        }
+
+                        if (this.validator.validate()) {
+                            if (url) {
+                                this.form.action = url;
+                            }
+                            this.form.submit();
+                        }
+                        Object.extend(Validation.methods, nv);
+                    }
+                }.bind(productAddToCartForm);
+                //]]>
+
+
+                document.addEventListener("DOMContentLoaded", function(event) {
+
+
+                    var acc = document.getElementsByClassName("accordion");
+                    var panel = document.getElementsByClassName('panel');
+
+                    for (var i = 0; i < acc.length; i++) {
+                        acc[i].onclick = function() {
+                            var setClasses = !this.classList.contains('active');
+                            setClass(acc, 'active', 'remove');
+                            setClass(panel, 'show', 'remove');
+
+                            if (setClasses) {
+                                this.classList.toggle("active");
+                                this.nextElementSibling.classList.toggle("show");
+                            }
+                        }
+                    }
+
+                    function setClass(els, className, fnName) {
+                        for (var i = 0; i < els.length; i++) {
+                            els[i].classList[fnName](className);
+                        }
+                    }
+
+                });
+
+
+
+            </script>
+        </div>
+
+        <div class="product-collateral toggle-content tabs">
+            <?php if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')): ?>
+                <dl id="collateral-tabs" class="collateral-tabs">
+                    <?php foreach ($detailedInfoGroup as $alias => $html): ?>
+                        <dt class="tab"><span><?php echo $this->escapeHtml($this->getChildData($alias, 'title')) ?></span></dt>
+                        <dd class="tab-container">
+                            <div class="tab-content"><?php echo $html ?></div>
+                        </dd>
+                    <?php endforeach; ?>
+                </dl>
+            <?php endif; ?>
+        </div>
+
+        <?php //echo $this->getChildHtml('upsell_products')    ?>
+        <?php echo $this->getChildHtml('related_products') ?>  
+        <?php echo $this->getChildHtml('product_additional_data') ?>
+
+    </div>
+
+<?php } else { ?>
+    <script type="text/javascript">
+        var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+    </script>
+    <div id="messages_product_view"><?php echo $this->getMessagesBlock()->toHtml() ?></div>
+    <div class="product-view <?php echo $_ProductType ?>-product">
+        <div class="product-essential">
+            <form action="<?php echo $this->getSubmitUrl($_product, array('_secure' => $this->_isSecure())) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+                <?php echo $this->getBlockHtml('formkey') ?>
+                <div class="no-display">
+                    <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                    <input type="hidden" name="related_product" id="related-products-field" value="" />
+                </div>
+                <?php if (!empty($extraOptions)) { ?>
+                    <input type="hidden" name="extra_options" id="extra_options" value="<?php echo $extraOptions; ?>" />
+                <?php } ?>
+                <!--                <div class="bundle-top-message">
+                                    <span><?php //echo $this->__('Roll through the seasons');                          ?></span>
+                                </div>-->
+                <?php //if ($_product->getShortDescription()): ?>
+                <!--                    <div class="bundle-description">
+                                        <div class="std">
+                <?php //echo $_helper->productAttribute($_product, nl2br($_product->getShortDescription()), 'short_description') ?>
+                                        </div>
+                                    </div>-->
+                <?php //endif; ?>
+                
+
+                <div class="bundle-product-parents">
+                    <div class="bundle-middle-message">
+                        <h5><?php echo $this->__('About %s', $_product->getName()); ?></h5>
+                        <span><?php echo $this->__('Your %s contains four specially chosen and coordinated products with full instructions to help you get ready for the season ahead:', $_product->getName()); ?> </span>
+                    </div>
+                    <div class="bundle-product product-name">
+
+
+                        <div class="bundle-child-product-innner">
+                            <div class="bundle-child-product-inner-wrapper">
+                                <div class="bundle-child-product-data">
+                                    <div class="bundle-child-product-img">
+                                        <?php
+                                        $product_img_size_width = 910;
+                                        $product_img = Mage::helper('catalog/image')->init($_product, 'image')
+                                                ->constrainOnly(false)
+                                                ->keepAspectRatio(true)
+                                                ->keepFrame(true);
+                                        ?>
+
+                                        <a href="<?php echo Mage::getUrl($_product->getData('url_key') . '.html', array('_secure' => true)); ?>">
+                                            <img src="<?php echo $product_img; ?>" alt="<?php echo $_product->getName(); ?>" />
+                                        </a>
+                                    </div>
+                                    <div class="bundle-product-name-area">
+                                        <div class="bundle-child-product-description bundle-product-desc">
+                                            <?php echo $_helper->productAttribute($_product, nl2br($_product->getDescription()), 'short_description') ?>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="spring-short">
+
+                    <span><?php echo $this->__('Stock up with additional %s products or why not explore our range for products to help with allergies, stress and fatigue.', 'Hello Day'); ?> </span>
+                    <span><?php echo $this->__('Please note that our %s is available as a limited quantity of 5,000 boxes. We therefore recommend that you place your order in plenty of time to avoid disappointment.', $_product->getName()); ?> </span>
+                </div>
+                <?php
+                $optionCollection = $_product->getTypeInstance()->getOptionsCollection();
+                $selectionCollection = $_product->getTypeInstance()->getSelectionsCollection($_product->getTypeInstance()->getOptionsIds());
+                $options = $optionCollection->appendSelections($selectionCollection);
+                ?>
+                <div class="add-to-cart-wrapper">
+                    <?php echo $this->getChildHtml('product_type_data') ?>
+                </div>
+                <div class="bundle-child-message">
+                    <span>
+                        <?php echo $this->__("what's inside"); ?>
+                    </span>
+                </div>
+                <div class="bundle-child-product-innner">
+                    <?php
+                    foreach ($options as $option) {
+                        $_selections = $option->getSelections();
+                        foreach ($_selections as $selection) {
+                            ?>
+                            <div class="bundle-child-product-innner product-child">
+
+                                <div class="bundle-child-product-inner-wrapper">
+                                    <div class="bundle-child-product-data">
+                                        <div class="bundle-child-product-img">
+                                            <?php
+                                            $product_img_size = 150;
+                                            $product_img = Mage::helper('catalog/image')->init($selection, 'small_image')
+                                                    ->constrainOnly(false)
+                                                    ->keepAspectRatio(true)
+                                                    ->keepFrame(true)
+                                                    ->resize($product_img_size, $product_img_size);
+                                            ?>
+
+                                            <a href="<?php echo Mage::getUrl($selection->getData('url_key') . '.html', array('_secure' => true)); ?>">
+                                                <img src="<?php echo $product_img; ?>" alt="<?php echo $selection->getName(); ?>" />
+                                            </a>
+                                        </div>
+                                        <div class="bundle-child-area">
+                                            <div class="bundle-child-product-name">
+                                                <a href="<?php echo Mage::getUrl($selection->getData('url_key') . '.html', array('_secure' => true)); ?>" title="<?php echo $selection->getName(); ?>">
+                                                    <?php echo $selection->getName(); ?>
+                                                </a>
+                                            </div>
+                                            <div class="bundle-child-product-description">
+                                                <?php echo $_helper->productAttribute($selection, nl2br($selection->getShortDescription()), 'short_description') ?>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        <?php } ?>
+                    <?php } ?>
+                </div>        
+                <!--   <div class="product-shop">
+
+                        <div class="price-info">
+
+                <?php //echo $this->getPriceHtml($_product); ?>
+                <?php //echo $this->getChildHtml('bundle_prices') ?>
+                <?php //echo $this->getTierPriceHtml() ?>
+
+                      </div>
+                   <div class="main-bundle-price-outer">
+                          <span class='price-lable'><?php //echo $this->__('price:')                                                                        ?></span><span class='main-bundle-product-price'></span>
+                      </div>
+
+                  </div>-->
+                <?php if ($_product->getTypeId() == 'bundle') : ?>
+                    <form action="<?php echo Mage::helper('checkout/cart')->getAddUrl($_product); ?>" method="post" id="product_addtocart_form_<?php echo $_product->getId() ?>">
+                        <?php
+                        $selectionCollection = $_product->getTypeInstance(true)->getSelectionsCollection(
+                                $_product->getTypeInstance(true)->getOptionsIds($_product), $_product
+                        );
+                        ?>
+                        <?php $saleable = true; ?>
+                        <?php foreach ($selectionCollection as $option) : ?>
+                            <input type="hidden" name="bundle_option[<?php echo $option->option_id; ?>][]" value="<?php echo $option->selection_id; ?>" />
+                            <input type="hidden" name="bundle_option_qty[<?php echo $option->option_id; ?>][]" value="1" />
+                            <?php
+                            //Stock control for each bundle option
+                            $opt_product = Mage::getModel('catalog/product')->load($option->product_id);
+                            $stocklevel = (int) Mage::getModel('cataloginventory/stock_item')
+                                            ->loadByProduct($opt_product)->getQty();
+                            $productInStock = (int) Mage::getModel('cataloginventory/stock_item')
+                                            ->loadByProduct($opt_product)->getData('is_in_stock');
+                            if ($stocklevel <= 0 || $productInStock == 0) {
+                                $saleable = false;
+                            }
+                            ?>
+                        <?php endforeach; ?>
+                        <?php $buttonTitle = Mage::helper('core')->quoteEscape($this->__('Add to Cart')); ?>
+                        <?php $afterSaleTitle = Mage::helper('core')->quoteEscape($this->__('After Sale')); ?>
+                        <?php if ($saleable): ?>
+                            <div class="add-to-cart">
+                                <div class="add-to-cart-buttons">
+                                    <button type="button" title="<?php echo $this->__('Shop Now') ?>" class="button" onclick="this.form.submit()"><span><span><?php echo $this->__('Shop Now') ?></span></span></button>
+                                </div>
+                            </div>
+                        <?php else: ?>
+                            <div class="add-to-cart">
+                                <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span> </p>
+                            </div>
+
+                        <?php endif; ?>
+                        <!--                        <div class="bundle-top-message">
+                                                    <span><?php //echo $this->__('All pre orders are 100% free of shipping.');         ?></span>
+                                                </div>-->
+                    </form>
+                <?php endif; ?>
+
+
+                <?php echo $this->getChildHtml('related_products') ?>
+
+                <div class="clearer"></div>
+
+            </form>
+            <script type="text/javascript">
+        //<![CDATA[
+        var productAddToCartForm = new VarienForm('product_addtocart_form');
+        productAddToCartForm.submit = function(button, url) {
+            if (this.validator.validate()) {
+                var form = this.form;
+                var oldUrl = form.action;
+
+                if (url) {
+                    form.action = url;
+                }
+                var e = null;
+                try {
+                    this.form.submit();
+                } catch (e) {
+                }
+                this.form.action = oldUrl;
+                if (e) {
+                    throw e;
+                }
+
+                if (button && button != 'undefined') {
+                    button.disabled = true;
+                }
+            }
+        }.bind(productAddToCartForm);
+
+        productAddToCartForm.submitLight = function(button, url) {
+            if (this.validator) {
+                var nv = Validation.methods;
+                delete Validation.methods['required-entry'];
+                delete Validation.methods['validate-one-required'];
+                delete Validation.methods['validate-one-required-by-name'];
+                // Remove custom datetime validators
+                for (var methodName in Validation.methods) {
+                    if (methodName.match(/^validate-datetime-.*/i)) {
+                        delete Validation.methods[methodName];
+                    }
+                }
+
+                if (this.validator.validate()) {
+                    if (url) {
+                        this.form.action = url;
+                    }
+                    this.form.submit();
+                }
+                Object.extend(Validation.methods, nv);
+            }
+        }.bind(productAddToCartForm);
+        //]]>
+        //        jQuery(document).ready(function() {
+        //            if (jQuery(".full-product-price .price").length > 0)
+        //            {
+        //                var bundleProduct = jQuery(".full-product-price .price").html();
+        //                jQuery('.price-info').hide();
+        //                jQuery('.product-options').hide();
+        //                jQuery('.main-bundle-product-price').html('<span class="price">' + bundleProduct + '</span>');
+        //            }
+        //        });
+            </script>
+        </div>
+
+    </div>
+<?php } ?>
+

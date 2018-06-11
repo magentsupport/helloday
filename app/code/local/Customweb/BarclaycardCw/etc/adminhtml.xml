@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<config>
+    <menu>
+         <system>
+            <children>
+                <barclaycardcw translate="title" module="BarclaycardCw">
+                    <title><![CDATA[Barclaycard]]></title>
+                    <action>adminhtml/configbarclaycardcw</action>
+                    <sort_order>109</sort_order>
+                </barclaycardcw>
+            </children>
+         </system>
+    </menu>
+    <acl>
+		<resources>
+			<admin>
+				<children>
+					<system>
+						<children>
+							<barclaycardcw>
+                                <title><![CDATA[Barclaycard]]></title>
+                                <sort_order>16</sort_order>
+                            </barclaycardcw>
+							<config>
+								<children>
+									<barclaycardcw translate="title" module="BarclaycardCw">
+										<title><![CDATA[Barclaycard]]></title>
+									</barclaycardcw>
+								</children>
+							</config>
+						</children>
+					</system>
+					<sales>
+						<children>
+							<barclaycardcw>
+                                <title><![CDATA[Barclaycard]]></title>
+                                <sort_order>16</sort_order>
+                                <children>
+                               		
+									<barclaycardcw_alias_manager translate="title" module="BarclaycardCw">
+										<title><![CDATA[Barclaycard: Alias Management]]></title>
+									</barclaycardcw_alias_manager>
+									
+									
+									<barclaycardcw_moto translate="title" module="BarclaycardCw">
+										<title><![CDATA[Barclaycard: Alias Management]]></title>
+									</barclaycardcw_moto>
+									
+								</children>
+                            </barclaycardcw>
+						</children>
+					</sales>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

@@ -1,0 +1,231 @@
+<style>
+    .product-param label { padding-right: 10px; }
+    .product-param .label { color: black; font-weight: bold; }
+    .product-param .label:hover { color: blue; font-weight: bold; }
+    .product-param .element { display: none; }
+    .product-param input, .product-param select { min-width: 350px; width: auto !important; }
+    .product-param-edit .label { display: none; }
+    .product-param-edit .element { display: inline; }
+    .product-chooser { border: 1px solid #CCC; display: none; margin: 10px 0; padding: 5px; }
+</style>
+<?php
+$data = Mage::registry('blog_data');
+$_post_id = $data['post_id'];
+?>
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('blog')->__('Manually Products') ?></h4>
+
+    </div>
+    <fieldset id="product_fieldset">
+        <ul>
+            <li>
+                <span class="product-param">
+                    <label for="product_sku"><?php echo Mage::helper('blog')->__('Select Post Related Product SKUs') ?></label>
+                    <a class="label" href="javascript:void(0)"><?php
+if ($_post_id) {
+	$post_products_id = $this->getIdsString($_post_id);
+	if(!empty($post_products_id) && post_products_id != null ){
+			echo $this->getIdsString($_post_id);
+	}else{
+		echo Mage::helper('blog')->__('Click Here To Add Products');
+	}
+	
+} else {
+    echo Mage::helper('blog')->__('Click Here To Add Products');
+}
+?></a>
+                    <span class="element">
+                        <input id="product_sku" class="input-text element-value-changer" type="text" value="<?php echo $this->getIdsString($_post_id) ?>" name="product_sku">
+                        <a class="product-chooser-trigger" href="javascript:void(0)">
+                            <img src="<?php echo Mage::getDesign()->getSkinUrl('images/rule_chooser_trigger.gif') ?>" alt="" class="v-middle product-chooser-trigger" title="<?php echo Mage::helper('blog')->__('Open Chooser') ?>" />
+                        </a>
+                    </span>
+                </span>
+                <div class="product-chooser" url="<?php echo Mage::getUrl('adminhtml/promo_widget/chooser/attribute/sku/form/rule_conditions_fieldset', array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())); ?>">
+            </li>
+        </ul>
+    </fieldset>
+</div>
+<script type="text/javascript">
+    var VarienRulesForm = new Class.create();
+    VarienRulesForm.prototype = {
+        initialize: function (parent, newChildUrl) {
+            this.parent = $(parent);
+            this.newChildUrl = newChildUrl;
+            this.shownElement = null;
+            this.updateElement = null;
+            this.chooserSelectedItems = $H({});
+
+            var elems = this.parent.getElementsByClassName('product-param');
+            for (var i = 0; i < elems.length; i++) {
+                this.initParam(elems[i]);
+            }
+
+            var elems = this.parent.getElementsByClassName('product-param');
+            for (var i = 0; i < elems.length; i++) {
+                var container = elems[i];
+            }
+        },
+        initParam: function (container) {
+            container.rulesObject = this;
+            var label = Element.down(container, '.label');
+            if (label) {
+                Event.observe(label, 'click', this.showParamInputField.bind(this, container));
+            }
+            var elem = Element.down(container, '.element');
+            if (elem) {
+                var trig = elem.down('.product-chooser-trigger');
+                if (trig) {
+                    Event.observe(trig, 'click', this.toggleChooser.bind(this, container));
+                }
+            }
+        },
+        showChooserElement: function (chooser) {
+            this.chooserSelectedItems = $H({});
+            var values = this.updateElement.value.split(','), s = '';
+            for (i = 0; i < values.length; i++) {
+                s = values[i].strip();
+                if (s != '') {
+                    this.chooserSelectedItems.set(s, 1);
+                }
+            }
+            new Ajax.Request(chooser.getAttribute('url'), {
+                evalScripts: true,
+                parameters: {'form_key': FORM_KEY, 'selected[]': this.chooserSelectedItems.keys()},
+                onSuccess: function (transport) {
+                    if (this._processSuccess(transport)) {
+                        $(chooser).update(transport.responseText);
+                        this.showChooserLoaded(chooser, transport);
+                    }
+                }.bind(this),
+                onFailure: this._processFailure.bind(this)
+            });
+        },
+        showChooserLoaded: function (chooser, transport) {
+            chooser.style.display = 'block';
+        },
+        showChooser: function (container, event) {
+            var chooser = container.up('li');
+            if (!chooser) {
+                return;
+            }
+            chooser = chooser.down('.product-chooser');
+            if (!chooser) {
+                return;
+            }
+            this.showChooserElement(chooser);
+        },
+        hideChooser: function (container, event) {
+            var chooser = container.up('li');
+            if (!chooser) {
+                return;
+            }
+            chooser = chooser.down('.product-chooser');
+            if (!chooser) {
+                return;
+            }
+            chooser.style.display = 'none';
+        },
+        toggleChooser: function (container, event) {
+            var chooser = container.up('li').down('.product-chooser');
+            if (!chooser) {
+                return;
+            }
+            if (chooser.style.display == 'block') {
+                chooser.style.display = 'none';
+                this.cleanChooser(container, event);
+            } else {
+                this.showChooserElement(chooser);
+            }
+        },
+        cleanChooser: function (container, event) {
+            var chooser = container.up('li').down('.product-chooser');
+            if (!chooser) {
+                return;
+            }
+            chooser.innerHTML = '';
+        },
+        showParamInputField: function (container, event) {
+            if (this.shownElement) {
+                this.hideParamInputField(this.shownElement, event);
+            }
+
+            Element.addClassName(container, 'product-param-edit');
+            var elemContainer = Element.down(container, '.element');
+
+            var elem = Element.down(elemContainer, 'input.input-text');
+            if (elem) {
+                elem.focus();
+                this.updateElement = elem;
+            }
+
+            var elem = Element.down(elemContainer, '.element-value-changer');
+            if (elem) {
+                elem.focus();
+            }
+
+            this.shownElement = container;
+        },
+        hideParamInputField: function (container, event) {
+            Element.removeClassName(container, 'product-param-edit');
+            var label = Element.down(container, '.label'), elem;
+
+            elem = Element.down(container, '.element-value-changer');
+            if (elem.value) {
+                this.addRuleNewChild(elem);
+            }
+            elem.value = '';
+
+            this.hideChooser(container, event);
+            this.updateElement = null;
+
+            this.shownElement = null;
+        },
+        _processSuccess: function (transport) {
+            if (transport.responseText.isJSON()) {
+                var response = transport.responseText.evalJSON()
+                if (response.error) {
+                    alert(response.message);
+                }
+                if (response.ajaxExpired && response.ajaxRedirect) {
+                    setLocation(response.ajaxRedirect);
+                }
+                return false;
+            }
+            return true;
+        },
+        _processFailure: function (transport) {
+            location.href = BASE_URL;
+        },
+        chooserGridRowInit: function (grid, row) {
+            if (!grid.reloadParams) {
+                grid.reloadParams = {'selected[]': this.chooserSelectedItems.keys()};
+            }
+        },
+        chooserGridRowClick: function (grid, event) {
+            var trElement = Event.findElement(event, 'tr');
+            var isInput = Event.element(event).tagName == 'INPUT';
+            if (trElement) {
+                var checkbox = Element.select(trElement, 'input');
+                if (checkbox[0]) {
+                    var checked = isInput ? checkbox[0].checked : !checkbox[0].checked;
+                    grid.setCheckboxChecked(checkbox[0], checked);
+                }
+            }
+        },
+        chooserGridCheckboxCheck: function (grid, element, checked) {
+            if (checked) {
+                if (!element.up('th')) {
+                    this.chooserSelectedItems.set(element.value, 1);
+                }
+            } else {
+                this.chooserSelectedItems.unset(element.value);
+            }
+            grid.reloadParams = {'selected[]': this.chooserSelectedItems.keys()};
+            this.updateElement.value = this.chooserSelectedItems.keys().join(', ');
+        }
+
+    };
+    var rule_conditions_fieldset = new VarienRulesForm('product_fieldset', '<?php echo Mage::getUrl('/admin/promo_catalog/newConditionHtml/form/rule_conditions_fieldset/', array('_secure' => Mage::app()->getStore()->isAdminUrlSecure())) ?>');
+</script>

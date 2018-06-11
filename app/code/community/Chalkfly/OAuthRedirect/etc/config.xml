@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Chalkfly_OAuthRedirect>
+            <version>0.1.0</version>
+        </Chalkfly_OAuthRedirect>
+    </modules>
+    <frontend>
+        <routers>
+            <customer>
+                <args>
+                    <modules>
+                        <chalkfly_oauthredirect before="Mage_Customer_AccountController">Chalkfly_OAuthRedirect</chalkfly_oauthredirect>
+                    </modules>
+                </args>
+            </customer>
+        </routers>
+    </frontend>
+</config>

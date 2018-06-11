@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <modules>
+        <Customweb_BarclaycardCw>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Payment/>
+                <Mage_Api/>
+            </depends>
+            <version>1.8.0</version>
+        </Customweb_BarclaycardCw>
+    </modules>
+</config>

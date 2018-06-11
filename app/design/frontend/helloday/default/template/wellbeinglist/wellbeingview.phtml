@@ -1,0 +1,154 @@
+<?php
+/**
+ *
+ */
+?>
+<?php
+$wellbeingCategory = $this->getCurrentCategory();
+$sticker_flag = true;
+$ignore_group_ids = array('5','6','7');
+if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+    if(in_array(Mage::getSingleton('customer/session')->getCustomer()->getGroupId(), $ignore_group_ids))
+        { $sticker_flag = false; }
+}
+?>
+<?php if (!is_null($wellbeingCategory)): ?>
+
+    <div class="wellbeingView">
+        <div class="wellbeingView-content">
+            <p><?php echo $wellbeingCategory->getDescription(); ?></p>
+        </div>
+        <div class="wellbeingView-product">
+            <?php $_helper = $this->helper('catalog/output'); ?>
+            <?php $_productCollection = $this->getCategoryProductCollection($wellbeingCategory); ?>
+            <?php if (!count($_productCollection)): ?>
+                <p class="note-msg"><?php echo $this->__('There are no products matching the selection.') ?></p>
+            <?php else: ?>
+                <div class="category-products">
+                    <ul class="products-grid products-grid--max-col">
+                        <?php
+                        $i = 0;
+                        $currentDate = Mage::getModel('core/date')->gmtDate('Y-m-d 00:00:00');
+                        foreach ($_productCollection as $_product):
+                            $_product = Mage::getModel('catalog/product')->load($_product->getId());
+//                            if ($_product->getSku() == 'Vitality-Boost') {
+//                                $productPreOrderDate = ' ';
+//                                $productDate = ' ';
+//                            } else {
+//                                $productPreOrderDate = $_product->getData('product_date');
+//                                $productDate = $_product->getProductDate();
+//                            }
+//                            $productPreOrderDate = $_product->getData('product_date');
+
+                            $extraOptions = '';
+                            $productDate = $_product->getProductDate();
+                            $productPreOrderText = $_product->getData('product_pre_order_text');
+//                            if (!is_null($productDate) && !is_null($productPreOrderText)) {
+//                                    $productDate = date('M d Y', strtotime($_product->getProductDate()));
+//                                $extraOptions = $productPreOrderText . ' ' . $productDate;
+//                            }
+                            $extraOptions = $productPreOrderText;
+                            ?>                
+                            <?php
+                            $inStock = Mage::getModel('cataloginventory/stock_item')->loadByProduct($_product)->getIsInStock();
+                            if ($inStock) {
+                                $class = 'bundle-active';
+                            } else {
+                                $class = 'bundle-deactive';
+                            }
+
+                            // if ($productPreOrderDate > $currentDate || $productPreOrderDate == $currentDate || $productPreOrderDate == null) {
+                            ?>
+                            <li class="<?php echo $class ?> item<?php if (($i - 1) % $_columnCount == 0): ?> first<?php elseif ($i % $_columnCount == 0): ?> last<?php endif; ?>">  
+                                <?php if(Mage::getStoreConfig('immunitycampaign/promo/enable')) { ?>                    
+                                <?php if($_product->getSku() == '11100SA-IMMUN-30' && $sticker_flag) {?>
+                                    <div class="promo">
+                                        <span>10% off</span>
+                                        <span>Money Back Guarantee</span>
+                                    </div>
+                                <?php } } ?>
+                                <a href="<?php echo $_product->getProductUrl(); ?>" title="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" class="product-image">
+                                    <?php $_imgSizeWidth = 255; $_imgSizeHeight = 300; ?>
+                                    <img id="product-collection-image-<?php echo $_product->getId(); ?>"
+                                         src="<?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($_imgSizeWidth, $_imgSizeHeight)->setQuality(100); ?>"
+                                         alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>" />
+                                </a>
+								<h2 class="product-name"><a href="<?php echo $_product->getProductUrl() ?>" title="<?php echo $this->stripTags($_product->getName(), null, true) ?>"><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></a></h2>
+                                <?php echo $this->getPriceHtml($_product, true)?>
+                                <div class="product-info">
+                                    <?php
+                                    if ($this->getChild('name.after')) {
+                                        $_nameAfterChildren = $this->getChild('name.after')->getSortedChildren();
+                                        foreach ($_nameAfterChildren as $_nameAfterChildName) {
+                                            $_nameAfterChild = $this->getChild('name.after')->getChild($_nameAfterChildName);
+                                            $_nameAfterChild->setProduct($_product);
+                                            echo $_nameAfterChild->toHtml();
+                                        }
+                                    }
+                                    ?>
+                                    <?php if (!$_product->getData('hide_shop_button') ) : ?>
+                                        <div class="actions">
+                                            <?php if (!$_product->canConfigure() && $_product->isSaleable()): ?>
+                                                <?php /*if (!is_null($extraOptions) && !empty($extraOptions)) {
+                                                    ?>
+                                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Shop Now')) ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product, array('extra_options' => $extraOptions)) ?>')"><span><span><?php echo $this->__('Shop Now') ?></span></span></button>
+                                                <?php } else { */ ?>
+                                                    <button type="button" title="<?php echo $this->quoteEscape($this->__('Shop Now')) ?>" class="button btn-cart" onclick="setLocation('<?php echo Mage::helper('checkout/cart')->getAddUrl($_product) ?>')"><span><span><?php echo $this->__('Shop Now') ?></span></span></button>
+                                                <?php /* } */ ?>
+                                                <a title="<?php echo $this->quoteEscape($this->__('View More')) ?>" href="<?php echo $_product->getProductUrl() ?>"class="button btn-cart"><span><span><?php echo $this->__('View More') ?></span></span></a>
+                                            <?php else: ?>
+                                                <?php if ($_product->getTypeId() == 'bundle') : ?>
+                                                    <form action="<?php echo Mage::helper('checkout/cart')->getAddUrl($_product); ?>" method="post" id="product_addtocart_form_<?php echo $_product->getId() ?>">
+                                                        <?php if (!empty($extraOptions)) { ?>
+                                                            <input type="hidden" name="extra_options" id="extra_options" value="<?php echo $extraOptions; ?>" />
+                                                        <?php } ?>
+                                                        <?php
+                                                        $selectionCollection = $_product->getTypeInstance(true)->getSelectionsCollection(
+                                                                $_product->getTypeInstance(true)->getOptionsIds($_product), $_product
+                                                        );
+                                                        ?>
+                                                        <?php $saleable = true; ?>
+                                                        <?php foreach ($selectionCollection as $option) : ?>
+                                                            <input type="hidden" name="bundle_option[<?php echo $option->option_id; ?>][]" value="<?php echo $option->selection_id; ?>" />
+                                                            <input type="hidden" name="bundle_option_qty[<?php echo $option->option_id; ?>][]" value="1" />
+                                                            <?php
+                                                            $opt_product = Mage::getModel('catalog/product')->load($option->product_id);
+                                                            $stocklevel = (int) Mage::getModel('cataloginventory/stock_item')
+                                                                            ->loadByProduct($opt_product)->getQty();
+                                                            $productInStock = (int) Mage::getModel('cataloginventory/stock_item')
+                                                                            ->loadByProduct($opt_product)->getData('is_in_stock');
+                                                            if ($stocklevel <= 0 || $productInStock == 0) {
+                                                                $saleable = false;
+                                                            }
+                                                            ?>
+                                                        <?php endforeach; ?>
+                                                        <?php if ($saleable): ?>
+                            <!--                                                            <button type="button" title="<?php // echo $this->__('Shop Now')     ?>" class="button" onclick="this.form.submit()"><span><span><?php // echo $this->__('Shop Now')     ?></span></span></button>-->
+                                                            <a title="<?php echo $this->quoteEscape($this->__('View More')) ?>" href="<?php echo $_product->getProductUrl() ?>"class="button btn-cart"><span><span><?php echo $this->__('View More') ?></span></span></a>
+                                                        <?php else: ?>
+                                                            <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span> </p>
+                                                            <a title="<?php echo $this->quoteEscape($this->__('View More')) ?>" href="<?php echo $_product->getProductUrl() ?>"class="button btn-cart"><span><span><?php echo $this->__('View More') ?></span></span></a>
+                                                        <?php endif; ?>
+                                                    </form><?php endif; ?>
+
+                                            <?php endif; ?>
+
+                                        </div>
+                                    <?php  else : ?>
+                                        <div class="actions">&nbsp;</div>
+                                    <?php endif; ?>
+
+                                </div>
+                            </li>
+                            <?php
+                            //         }
+                            ?>
+                        <?php endforeach ?>
+                    </ul>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php else: ?>
+    <?php echo Mage::helper('blog')->__(''); ?>
+<?php endif; ?>

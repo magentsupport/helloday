@@ -1,0 +1,19 @@
+<!--
+/**
+ * Chalkfly
+ * 
+ * This module overrides the core Customer AccountController to fix a redirect problem with OAuth. 
+ *
+ */
+-->
+<config>
+  <modules>
+    <Chalkfly_OAuthRedirect>
+      <active>true</active>
+      <codePool>community</codePool>
+      <depends>
+        <Mage_Customer />
+      </depends>
+    </Chalkfly_OAuthRedirect>
+  </modules>
+</config>

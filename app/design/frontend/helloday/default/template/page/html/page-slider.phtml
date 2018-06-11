@@ -1,0 +1,255 @@
+<!--Product page -->
+<?php $current_product = Mage::registry('current_product'); 
+$banner_flag = true;
+$cmsIdentifier = Mage::getSingleton('cms/page')->getIdentifier();
+$ignore_pages = array('faqs', 'acceptable-use-policy', 'cookie-policy', 'privacy-policy', 'terms', 'feel-better-satisfaction-guarantee-terms', 'feel-better-satisfaction-guarantee', 'probiotics','deliveries-and-returns','contacts');
+$fullactionname = Mage::app()->getFrontController()->getAction()->getFullActionName();
+$moduleName = Mage::app()->getRequest()->getModuleName();
+$controllerName = Mage::app()->getRequest()->getControllerName();
+
+if(in_array($cmsIdentifier, $ignore_pages) || $moduleName == 'customer' || $moduleName == 'amrmafront' || $moduleName == 'contacts' || $moduleName == 'newsletter' || $moduleName == 'sales' || $fullactionname == 'checkout_onepage_success') { $banner_flag = false; }
+
+
+$ignore_actions = array('contacts_index_index', 'customer_account_create', '');
+?>
+<?php if ($current_product): ?>
+    <?php $productType = $current_product->getTypeId(); ?>
+    <?php if ($productType == 'bundle'): ?>
+        <!-- Bundle Product page slider id = 8-->
+        <?php if ($current_product->getSku() == 'Spring Box') : ?>
+            <?php
+            echo $this->getLayout()->createBlock('bannerslider/default')
+                    ->setTemplate('bannerslider/bannerslider.phtml')
+                    ->setBannersliderId('8')
+                    ->toHtml();
+            ?>
+        <?php elseif ($current_product->getSku() == 'summer-box') : ?>
+            <?php
+            echo $this->getLayout()->createBlock('bannerslider/default')
+                    ->setTemplate('bannerslider/bannerslider.phtml')
+                    ->setBannersliderId('35')
+                    ->toHtml();
+            ?>
+        <?php endif; ?>
+    <?php else: ?>
+        <!-- Simple Product page slider id = 3-->
+        <?php
+        if ($current_product != null) {
+            $sku = $current_product->getSku();
+        }
+        ?>
+        <?php
+        try {
+            if (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'immunity-defence'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('12')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Vita-Bal'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('16')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Lib-Stim'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('13')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Dige-Detox'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('11')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Circu-Acti'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('10')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Stress-Relax'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('15')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Sleep-Rest'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('14')
+                        ->toHtml();
+            elseif (!Mage::getBlockSingleton('page/html_header')->getIsHomePage() && $sku == 'Vitality-Boost'):
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('17')
+                        ->toHtml();
+            else:
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                        ->setTemplate('bannerslider/bannerslider.phtml')
+                        ->setBannersliderId('3')
+                        ->toHtml();
+            endif;
+        } catch (Exception $e) {
+            Mage::helper('boxproduct')->insertLog('bannerslider', $e->getMessage());
+        }
+        ?>
+    <?php endif; ?>
+    <!-- Category page slider id = 4  -->
+<?php elseif (Mage::registry('current_category')): ?>
+    <?php
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId('4')
+            ->toHtml();
+    ?>
+    <!-- blog-view page slider id = 5  -->
+<?php elseif (!is_null(Mage::registry('share_current_post_data'))): ?>
+    <?php
+    $blogDetails = Mage::registry('share_current_post_data');
+    if ($blogDetails->getPostId() == '18') :
+        $sliderId = '30';
+    elseif ($blogDetails->getPostId() == '19'):
+        $sliderId = '29';
+    elseif ($blogDetails->getPostId() == '20'):
+        $sliderId = '28';
+    elseif ($blogDetails->getPostId() == '21'):
+        $sliderId = '27';
+    elseif ($blogDetails->getPostId() == '22'):
+        $sliderId = '34';
+    else:
+        $sliderId = '6';
+    endif;
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId($sliderId)
+            ->toHtml();
+    ?>
+    <!-- blog listing page slider id = 6  -->
+<?php elseif (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'blog_index_list'): ?>
+    <?php
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId('6')
+            ->toHtml();
+    ?>
+    <!-- Checkout page slider id = 7  -->
+<?php elseif (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'checkout_onepage_index'): ?>
+    <?php
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId('7')
+            ->toHtml();
+    ?>
+<?php elseif (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'checkout_cart_index'): ?>
+    <div class="home-page-mobile loader-slider" id="mobile-slide" style="display: none; height:auto;">
+        <?php
+        echo $this->getLayout()->createBlock('bannerslider/default')
+                ->setTemplate('bannerslider/bannerslider.phtml')
+                ->setBannersliderId('33')
+                ->toHtml();
+        ?>
+    </div>
+    <div class="desktop-page-slider loader-slider">
+        <?php
+        echo $this->getLayout()->createBlock('bannerslider/default')
+                ->setTemplate('bannerslider/bannerslider.phtml')
+                ->setBannersliderId('32')
+                ->toHtml();
+        ?>
+    </div>
+<?php elseif (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'boxproducts_index_wellbeingview'): ?>
+    <?php $categoryId = Mage::app()->getRequest()->getParam('id'); ?>
+    <?php
+    if ($categoryId == '10'):
+        /** $categoryId 10 = Vitality */
+        $categorySliderId = '25';
+    elseif ($categoryId == '11'):
+        /** $categoryId 11 = Sleep */
+        $categorySliderId = '22';
+    elseif ($categoryId == '12'):
+        /** $categoryId 11 = Stress */
+        $categorySliderId = '23';
+    elseif ($categoryId == '13'):
+        /** $categoryId 13 = Digastion */
+        $categorySliderId = '19';
+    elseif ($categoryId == '14'):
+        /** $categoryId 14 = Immunity */
+        $categorySliderId = '20';
+    elseif ($categoryId == '15'):
+        /** $categoryId 15 = Libido */
+        $categorySliderId = '21';
+    elseif ($categoryId == '16'):
+        /** $categoryId 16 = Sun */
+        $categorySliderId = '24';
+    elseif ($categoryId == '17'):
+        /** $categoryId 17 = Cerculation */
+        $categorySliderId = '18';
+    elseif($categoryId == '22'):
+        /** $categoryId 17 = Beauty */
+        $categorySliderId = '35';
+    endif;
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId($categorySliderId)
+            ->toHtml();
+    ?>
+<?php elseif (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'boxproducts_index_wellbeinglist'): ?>
+    <?php
+    /** wellbeinglist page slider = */
+    echo $this->getLayout()->createBlock('bannerslider/default')
+            ->setTemplate('bannerslider/bannerslider.phtml')
+            ->setBannersliderId('26')
+            ->toHtml();
+    ?>
+<?php else:
+    ?>
+    <!-- All the remaning page slider id = 2  -->
+    <?php if (Mage::getBlockSingleton('page/html_header')->getIsHomePage()): ?>
+        <div class="home-page-mobile loader-slider" id="mobile-slide" style="display: none; height:auto;">
+            <?php
+            echo $this->getLayout()->createBlock('bannerslider/default')
+                    ->setTemplate('bannerslider/bannerslider.phtml')
+                    ->setBannersliderId('9')
+                    ->toHtml();
+            ?>
+        </div>
+        <?php
+    endif;
+
+    if (Mage::getSingleton('cms/page')->getIdentifier() && Mage::getSingleton('cms/page')->getIdentifier() == 'about-us') { ?>
+        
+        <div class="desktop-page-slider">
+            <?php
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                    ->setTemplate('bannerslider/bannerslider.phtml')
+                    ->setBannersliderId('31')
+                    ->toHtml();
+            ?>
+        </div>
+
+    <?php } elseif($banner_flag == false) { ?>
+        
+        <div class="desktop-page-slider" style="display: none;">
+        </div>
+
+    <?php } else {?>
+
+        <div class="desktop-page-slider loader-slider">
+            <?php
+                echo $this->getLayout()->createBlock('bannerslider/default')
+                    ->setTemplate('bannerslider/bannerslider.phtml')
+                    ->setBannersliderId('2')
+                    ->toHtml();
+            ?>
+        </div>
+    <?php } ?>
+<?php endif; ?>
+<script>
+    /*    jQuery(document).ready(function() {
+     if (jQuery(window).width() < 768) {
+     if (jQuery('#mobile-slide').hasClass('home-page-mobile')) {
+     jQuery('.desktop-page-slider').remove();
+     jQuery('.home-page-mobile').show();
+     }
+     } else {
+     jQuery('.home-page-mobile').remove();
+     }
+     }); */
+</script>

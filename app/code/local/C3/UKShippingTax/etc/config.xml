@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <C3_UKShippingTax>
+            <version>1.0.1</version>
+        </C3_UKShippingTax>
+    </modules>
+    <global>
+        <models>
+            <c3_ukshippingtax>
+                <class>C3_UKShippingTax_Model</class>
+            </c3_ukshippingtax>
+            <tax>
+                <rewrite>
+                    <sales_total_quote_tax>c3_ukshippingtax/tax_sales_total_quote_tax</sales_total_quote_tax>
+                    <sales_total_quote_shipping>c3_ukshippingtax/tax_sales_total_quote_shipping</sales_total_quote_shipping>
+                </rewrite>
+            </tax>
+        </models>
+        <helpers>
+            <c3_ukshippingtax>
+                <class>C3_UKShippingTax_Helper</class>
+            </c3_ukshippingtax>
+        </helpers>
+    </global>
+    <default>
+        <tax>
+            <calculation>
+                <pro_rata_shipping_enabled>0</pro_rata_shipping_enabled>
+                <pro_rata_shipping_incl>1</pro_rata_shipping_incl>
+                <pro_rata_shipping_countries>GB</pro_rata_shipping_countries>
+            </calculation>
+        </tax>
+    </default>
+</config>

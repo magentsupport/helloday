@@ -1,0 +1,194 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+?>
+<?php if(Mage::getStoreConfig('immunitycampaign/promo/enable')) {?>
+<div class="headerTextBanner rotated-words">
+    <div>10% off your first Immunity Defence order</div>
+    <div style="display: none;">Free UK delivery on order over £50</div>
+    <div style="display: none;">Free tote bag with any seasonal boxes</div>
+</div>
+<?php } ?>
+<div class="header-language-background">
+    <div class="header-language-container">
+        <div class="store-language-container">
+            <?php echo $this->getChildHtml('store_language') ?>
+        </div>
+
+
+
+        <!--<p class="welcome-msg"><?php // echo $this->getChildHtml('welcome')            ?> <?php // echo $this->getChildHtml('accountLinks')            ?></p>-->
+    </div>
+</div>
+
+<header id="header" class="page-header">
+    <div class="page-header-container">
+        <div id="header-nav" class="skip-content">
+            <?php // echo $this->getChildHtml('topMenu') ?>
+            <nav id="nav">
+                <ol class="nav-primary">
+                    <!--Home Blog and Account section added by Arvind 24 Dec 2016-->
+                    <?php $accountUrl = Mage::getBaseUrl() . 'customer/account/login/'; ?>
+                    <?php $currentUrl = Mage::helper('core/url')->getCurrentUrl(); ?>
+                    <?php $currenctCty = Mage::registry('current_category'); ?>
+
+                    <li class="level0 nav-1 first last parent <?php 
+                        if ($currentUrl == Mage::getUrl('about-us', array('_secure'=>true))) {
+                            echo 'active';
+                    }
+                        ?>"><a href="<?php echo $this->getUrl('about-us',array('_secure'=>true)) ?>"><?php echo $this->__('About Us'); ?></a></li>
+
+                    <li class="level0 nav-1 first last parent <?php
+                    if ($currentUrl == Mage::getUrl('probiotics', array('_secure'=>true, '_nosid' => true))) {
+                        echo 'active';
+                    }
+                    ?>"><a href="<?php echo $this->getUrl('probiotics',array('_secure'=>true)) ?>"><?php echo $this->__('NEW Probiotics'); ?></a></li>
+                    <li class="level0 nav-1 first last parent <?php
+                        if ($currentUrl == Mage::getUrl('boxproducts/index/wellbeinglist',array('_secure'=>true, '_nosid' => true))) {
+                        echo 'active';
+                    }
+                        ?>"><a href="<?php echo $this->getUrl('boxproducts/index/wellbeinglist',array('_secure'=>true)) ?>"><?php echo $this->__('Wellbeing'); ?></a></li>
+                    <li class="level0 nav-1 first last parent">
+                     <?php echo $this->getChildHtml('topMenu') ?>
+                    </li>
+                    <li class="level0 nav-1 first last parent <?php
+                    if ($currentUrl == Mage::getUrl('blog',array('_secure'=>true, '_nosid' => true))) {
+                        echo 'active';
+                    }
+                    ?>"><a href="<?php echo $this->getUrl('blog',array('_secure'=>true))?>"><?php echo $this->__('Blog'); ?></a></li>
+<!--                    <li class="level0 nav-1 first last parent --><?php
+//                    if ($accountUrl == $currentUrl) {
+//                        echo 'active';
+//                    }
+//                    ?><!--"><a href="--><?php //echo $this->helper('customer')->getAccountUrl(); ?><!--">--><?php //echo $this->__('My Account'); ?><!--</a></li>-->
+
+                </ol>
+            </nav>
+
+        </div>
+        <div class="header-logo">
+            <a class="logo" href="<?php echo $this->getUrl('', array('_secure'=>true)) ?>">
+                <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="large" />
+                <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" />
+            </a>
+            <div class="header-right-menu">
+                <div class="account-cart-wrapper">
+                <a href="<?php // echo $this->helper('customer')->getAccountUrl();            ?>" data-target-element="#header-account" class="skip-link skip-account">
+                                <span class="icon"></span>
+                                <span class="label"><?php // echo $this->__('Account');            ?></span>
+                        </a>
+                    <!-- Cart -->
+                    <div class="header-minicart" id="mobile-minicart">
+                        <?php echo $this->getChildHtml('minicart_head'); ?>
+                    </div>
+                </div>
+                <a href="#header-nav" class="skip-link skip-nav">
+                    <span class="icon"></span>
+                    <span class="label"><?php echo $this->__('Menu'); ?></span>
+                </a>
+            </div>
+        </div>
+
+        <?php
+// In order for the language switcher to display next to logo on smaller viewports, it will be moved here.
+// See app.js for details 
+        ?>
+        <div class="store-language-container"></div>
+
+        <!-- Skip Links -->
+        <div class="header-right-section">
+            <div class="skip-links">
+                <a href="#header-search" class="skip-link skip-search">
+                    <span class="icon"></span>
+                    <span class="label"><?php echo $this->__('Search'); ?></span>
+                </a>
+
+
+
+                <div class="account-cart-wrapper">
+<!--                    <div >-->
+<!--                        -->
+<!--                    </div>-->
+                    
+                    <div class="header-account" id="desktop-account">
+                        <a href="<?php  echo $this->helper('customer')->getAccountUrl();?>" class="header-account">
+                            <span class="icon"></span>
+                            <span class="label"><?php echo $this->__('My Account');?></span>
+                        </a>
+                    </div>
+                    <!-- Cart -->
+                    <div class="header-minicart" id="desktop-minicart">
+                        <?php echo $this->getChildHtml('minicart_head'); ?>
+                    </div>
+                </div>
+                <?php echo $this->getChildHtml('currency_switcher') ?>
+
+
+            </div>
+
+            <!-- Navigation -->
+
+
+
+            <!-- Search -->
+
+            <div id="header-search" class="skip-content">
+                <?php echo $this->getChildHtml('topSearch') ?>
+            </div>
+            <?php echo $this->getChildHtml('currency_switcher') ?>
+        </div>
+
+        <!-- Account -->
+
+        <div id="header-account" class="skip-content">
+            <?php echo $this->getChildHtml('topLinks') ?>
+        </div>
+    </div>
+</header>
+
+
+<?php echo $this->getChildHtml('topContainer'); ?>
+<!-- Active De-active Currency and Search box popup  -->
+<script type="text/javascript">
+    jQuery(".skip-link.skip-search").on("click", function() {
+        jQuery(".currency-list").removeClass('currency-list-active');
+    });
+    jQuery(".currency-sym").on("click", function() {
+        jQuery("#header-search").removeClass('skip-active');
+        jQuery(".skip-search").removeClass('skip-active');
+    });
+    jQuery(".close.skip-link-close").on("click", function() {
+        jQuery(".skip-link.skip-cart").removeClass('skip-active');
+    });
+    /*var getWindowWidth = jQuery(window).width();
+    if (getWindowWidth < 1024) {
+        jQuery("#desktop-minicart").remove();
+    } else {
+        jQuery("#mobile-minicart").remove();
+    }*/
+</script>

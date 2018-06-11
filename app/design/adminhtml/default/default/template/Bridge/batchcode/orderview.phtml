@@ -1,0 +1,39 @@
+<?php
+/**
+ * Bridge Batchcode
+ *
+ * @category      Bridge
+ * @package       Bridge_Batchcode
+ * @copyright     Copyright (c) 2013 Bridge India. (http://bridge-india.in)
+ * @license       http://bridge-india.in/disclaimer/magento
+ */
+?>
+<?php
+    $quantity = '';
+$batches = $this->getBatchcode();
+$batchqty = $this->getBatchcodeqty();
+$shipqty = $this->getBatchcodeshipqty();
+if ($batches) {
+        $batchcode=array();
+        foreach($batches as &$batch) {
+            $batchcodes = $batch->getBatchNumber();
+            $batchcode[] = $batchcodes;
+        }
+        foreach($batchqty as &$qty) {
+            $quantity += (int)$qty;
+        }
+        foreach($shipqty as &$sqty) {
+            $shp_qty = (int)$sqty;
+        }
+        if($quantity>=$shp_qty)
+        {
+            echo  '<strong>'.$this->helper("batchcode")->__("BATCHCODE") .' : </strong>'.$batchs = implode(', ',$batchcode);
+        }else{
+            echo  '<strong>'.$this->helper("batchcode")->__("BATCHCODE") .' : </strong>'.$batchs = implode(', ',$batchcode).', Non Batchcode Product';
+        }
+    } else {
+    echo 'No batchcodes for this product';
+}
+?>
+
+

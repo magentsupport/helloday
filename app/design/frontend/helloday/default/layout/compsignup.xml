@@ -1,0 +1,21 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <compsignup_index_index>   
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="compsignup/index" name="compsignup_index" template="compsignup/index.phtml"/>   
+    </reference>   
+  </compsignup_index_index> 
+
+  <compsignup_index_success>   
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="compsignup/index" name="compsignup_success" template="compsignup/success.phtml"/>   
+    </reference>   
+  </compsignup_index_success>
+</layout>   
+	

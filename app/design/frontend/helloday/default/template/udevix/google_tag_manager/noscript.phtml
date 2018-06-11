@@ -1,0 +1,18 @@
+<?php
+/**
+ * Udevix
+ *
+ * @author     UdevixTeam <udevix@gmail.com>
+ * @copyright  Copyright (c) 2015-2016 Udevix
+ */
+?>
+
+<?php
+$helper = Mage::helper('udevix_google_tag_manager');
+if ($helper->isActive()) :
+$containerId = trim($helper->getContainerId());
+?>
+
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=<?php echo $containerId ?>"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<?php endif; ?>

@@ -1,0 +1,114 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2006-2016 X.commerce, Inc. and affiliates (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="<?php echo $this->getLang(); ?>" id="top" class="no-js"> <!--<![endif]-->
+
+    <head>
+        <?php echo $this->getChildHtml('head') ?>
+    </head>
+    <body<?php echo $this->getBodyClass() ? ' class="' . $this->getBodyClass() . '"' : '' ?>>
+        <!-- Google Tag Manager (noscript) -->
+<!--        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PLJCFCX"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>-->
+        <!-- End Google Tag Manager (noscript) -->
+        <?php echo $this->getChildHtml('after_body_start') ?>
+        <div class="butterfly">
+            <div class="main-container"></div>
+        </div>
+        <?php if (Mage::registry('current_product')) { ?>
+            <?php if (Mage::registry('current_product')->getTypeId() == 'bundle') : ?>
+                <?php $bundleId = 'id="bundle-on-demand"' ?>
+            <?php endif; ?>
+            <div class="butterfly-animation" id="butterfly-product-view">
+                <div class="main-container"></div>
+            </div>
+        <?php } elseif (Mage::getBlockSingleton('page/html_header')->getIsHomePage()) { ?>
+            <div class="butterfly-animation" id="butterfly-home-page">
+                <div class="main-container"></div>
+            </div>
+        <?php } elseif (!is_null(Mage::registry('share_current_post_data'))) { ?>
+            <div class="butterfly-animation" id="butterfly-blog-view">
+                <div class="main-container"></div>
+            </div>
+        <?php } ?>
+		 <?php if (Mage::app()->getFrontController()->getAction()->getFullActionName() == 'boxproducts_index_wellbeingview') : 
+			$welbeing = 'wellbeingView-container';
+		 endif;
+		 ?>
+		 <div class="wrapper">
+            <?php echo $this->getChildHtml('global_notices') ?>
+            <div class="page">
+                <?php echo $this->getChildHtml('header') ?>
+                <!-- Page Sider Called from another template File 
+               File Path : page/html/page-slider.phtml
+                -->
+                <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('page/html/page-slider.phtml')->toHtml(); ?> 
+                <?php
+                $isHomePage = Mage::getBlockSingleton('page/html_header')->getIsHomePage();
+                if ($isHomePage) {
+                    echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_welcome')->toHtml();
+                    //echo $this->getLayout()->createBlock('cms/block')->setBlockId('how_it_works')->toHtml(); ?>
+                    <div class="col"><?php echo $this->getChildHtml('global_messages') ?></div>
+                    <div class="how-work best-seller-products">
+					<div class="main-container how-work-inner">
+					<h3>Best Sellers</h3>
+					<?php echo $this->getLayout()->createBlock('catalog/product_list')->setCategoryId('18')->setLimit('4')->setTemplate('catalog/product/list.phtml')->toHtml(); ?>
+					</div>
+					</div>
+                    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('mid-block')->toHtml();
+                }
+                ?>
+                <div class="main-container col1-layout <?php echo $welbeing;?>" <?php echo $bundleId ?>>
+                    <div class="main">
+                        <?php echo $this->getChildHtml('breadcrumbs') ?>
+                        <div class="col-main">
+                            <?php echo $this->getChildHtml('content') ?>
+                        </div>
+                    </div>
+                </div>
+                <?php echo $this->getChildHtml('footer_before') ?>
+
+            </div>
+            <?php echo $this->getChildHtml('footer') ?>
+            <?php echo $this->getChildHtml('global_cookie_notice') ?>
+            <?php echo $this->getChildHtml('before_body_end') ?>
+        </div>
+        <?php echo $this->getAbsoluteFooter() ?>
+    </body>
+</html>
+

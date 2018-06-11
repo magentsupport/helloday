@@ -1,0 +1,33 @@
+<?php
+/**
+ * Bridge Batchcode
+ *
+ * @category      Bridge
+ * @package       Bridge_Batchcode
+ * @copyright     Copyright (c) 2013 Bridge India. (http://bridge-india.in)
+ * @license       http://bridge-india.in/disclaimer/magento
+ */
+?>
+<?php $_item = $this->getItem(); 
+$order_item = Mage::getModel('sales/order_item')->load($_item->getOrderItemId());
+$type = $order_item->getProductType(); 
+if($type=='configurable')
+{
+$prd_id = Mage::getModel('sales/order_item')->load($order_item->getId(),'parent_item_id');
+
+?>
+<tr class="border">
+    <td><?php echo $this->getColumnHtml($_item, 'name') ?> 
+        <?php  echo $this->getLayout()->createBlock('batchcode/adminhtml_batchcode_orderview/')->setData('item_id', $prd_id['item_id'])->toHtml();?>
+    </td>
+    <td class="a-center"><?php echo $_item->getQty()*1 ?></td>
+</tr>
+<?php } else { ?>
+
+<tr class="border">
+    <td><?php echo $this->getColumnHtml($_item, 'name') ?> 
+        <?php  echo $this->getLayout()->createBlock('batchcode/adminhtml_batchcode_batch/')->setData('order_item_id', $_item['order_item_id'])->toHtml();?>
+    </td>
+    <td class="a-center"><?php echo $_item->getQty()*1 ?></td>
+</tr>
+<?php } ?>

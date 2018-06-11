@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Helloday_Campaign>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </Helloday_Campaign>
+  </modules>
+</config>

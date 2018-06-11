@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+
+<config>
+
+    <api>
+
+        <resources>
+
+            <batchcode translate="title" module="batchcode">
+
+                <model>batchcode/product_api</model>
+
+                 <title>Custom Product API </title>
+
+                <methods>
+
+                   <batchcode_api translate="title" module="batchcode">
+
+                        <title>Custom API for Add batch code</title>
+
+                        <method>batchcode_api</method>
+
+                   </batchcode_api>
+
+                   <batchcode translate="title" module="batchcode">
+
+                        <title>Custom API for Batch code checking</title>
+
+                        <method>batchcode</method>
+
+                   </batchcode>
+                   <batchcodeAssign translate="title" module="batchcode">
+                        <title>Custom API for Batch code Assigning</title>
+                        <method>batchcodeAssign</method>
+                   </batchcodeAssign>
+                   <shipmentConnector translate="title" module="batchcode">
+                        <title>Custom API for update Exact connector at shipment</title>
+                        <method>shipmentConnector</method>
+                   </shipmentConnector>
+
+                </methods>
+
+                <faults module="batchcode">
+
+                    <data_invalid>100
+
+                        <message>Invalid data</message>
+
+                    </data_invalid>
+
+                </faults>
+
+            </batchcode>
+
+          </resources>
+
+      </api>
+
+</config>

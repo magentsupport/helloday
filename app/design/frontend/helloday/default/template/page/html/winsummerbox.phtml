@@ -1,0 +1,33 @@
+<div class="account-create_form">
+	<div class="account-create">
+		<form id="win-summer-form" class="scaffold-form" action="<?php echo $this->getUrl('compsignup/index/save')?>" enctype="multipart/form-data" method="post">
+			<div class="fieldset">
+				<input type="hidden" value="" name="success_url" /> 
+				<input type="hidden" value="" name="error_url" /> 
+				<!--<input type="hidden" value="s5I75DCkd7bLJkJY" name="form_key" />-->
+				<p class="form-instructions">Please enter the following information to create your account.</p>
+				<div class="customer-name-middlename">
+					<div class="field name-firstname"><label class="required" for="firstname"><em>*</em>Title</label> <span class="radio_option"> <input id="mr" type="radio" autocomplete="off" value="Mr" name="title" /><span>Mr</span> </span> <span class="radio_option"> <input id="mrs" type="radio" autocomplete="off" value="Mrs" name="title" /><span>Mrs</span> </span> <span class="radio_option"> <input id="miss" type="radio" autocomplete="off" value="Miss" name="title" /><span>Miss</span> </span> <span class="radio_option"><input id="ms" type="radio" autocomplete="off" value="3" name="title" class="validate-one-required-by-name" /><span>Ms</span></span></div>
+					<div class="field name-firstname"><label class="required" for="firstname"><em>*</em>First Name</label>
+						<div class="input-box"><input id="first_name" class="validate-alpha input-text required-entry" title="First Name" type="text" maxlength="255" value="" name="first_name" /></div>
+					</div>
+					<div class="field name-lastname"><label class="required" for="SurName"><em>*</em>Surname</label>
+						<div class="input-box"><input id="surname" class="validate-alpha input-text required-entry" title="SurName" type="text" maxlength="255" value="" name="surname" /></div>
+					</div>
+				</div>
+				<div class="field name-lastname"><label class="required" for="email_address"><em>*</em>Email Address</label></div>
+				<div class="input-box"><input id="email_address" class="input-text validate-email required-entry" spellcheck="false" title="Email Address" type="email" value="" name="email" /></div>
+				<div class="input-box"><!--<input class="checkbox_form" type="checkbox" value="0" name="is_email" />--> <label> By Submitting this registration form, you indicate your consent to receiving electronic marketing messages from us and third parties carefully selected by us.</label></div>
+				<div class="input-box"><label style="margin-right: 10px;"> If you do not want to receive such message, tick here .</label><input class="checkbox_form" type="checkbox" /></div>
+				<p><label><a href="<?php echo $this->getUrl('terms');?>" target="_blank">Click here for full terms and conditions</a> </label></p>
+				<p><label><a href="<?php echo $this->getUrl('privacy-policy');?>" target="_blank">Click here to read our Privacy Policy</a> </label></p>
+			</div>
+			<p class="required">* Required Fields</p>
+			<div class="buttons-set"><button class="button" title="Register" type="submit"><span><span>Register</span></span></button></div>
+		</form>
+		<div class="contact-right-img" style="float: right;"><img alt="" src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA).'wysiwyg/mid-block/summer_box_1.jpg';?>" /></div>
+		<script type="text/javascript">// <![CDATA[
+			var dataForm = new VarienForm('win-summer-form', true);
+		// ]]></script>
+</div>
+</div>

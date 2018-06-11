@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <compsignup_adminhtml_compsignup_index>
+	<reference name="content">
+	  <block type="compsignup/adminhtml_compsignup" name="compsignup" />
+	</reference>
+  </compsignup_adminhtml_compsignup_index>
+</layout>

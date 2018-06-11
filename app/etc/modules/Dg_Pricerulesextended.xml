@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Dg_Pricerulesextended>
+      <active>true</active>
+      <codePool>community</codePool>
+    </Dg_Pricerulesextended>
+  </modules>
+</config>

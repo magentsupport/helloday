@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ES_DiscountCodeValidation>
+            <version>1.0.0</version>
+        </ES_DiscountCodeValidation>
+    </modules>
+
+    <frontend>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <ES_DiscountCodeValidation before="Mage_Checkout">ES_DiscountCodeValidation</ES_DiscountCodeValidation>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+    </frontend>
+</config>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <admin_campaign_adminhtml_campaignlog_index>
+	<reference name="content">
+	  <block type="campaign/adminhtml_campaignlog" name="campaignlog" />
+	</reference>
+  </admin_campaign_adminhtml_campaignlog_index>
+</layout>

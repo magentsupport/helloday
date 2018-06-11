@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+* Bridge Batchcode
+*
+* @category      Bridge
+* @package       Bridge_Batchcode
+* @copyright     Copyright (c) 2017 Bridge India. (http://bridge-india.in)
+* @license       http://bridge-india.in/disclaimer/magento
+-->
+<config>
+    <sections>
+        <catalog translate="label" module="batchcode">
+               <groups>
+                <batch translate="batchcode">
+                    <label>Product Batchcode Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>                
+                    <fields>
+                        <emailaddress translate="batchcode" >
+                            <label>E-mail address</label>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </emailaddress>
+                        <emailname translate="batchcode" >
+                            <label>E-mail Name</label>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </emailname>
+                        <RedirectUrl translate="batchcode" >
+                            <label>Redirect Url</label>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </RedirectUrl>
+                        <ExactClientId translate="batchcode" >
+                            <label>Exact Client Id</label>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ExactClientId>
+                        <ExactClientSecret translate="batchcode" >
+                            <label>Exact Client Secret</label>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </ExactClientSecret>
+                    </fields>
+                </batch>
+            </groups>                
+        </catalog>
+    </sections>
+</config>
